@@ -1,136 +1,218 @@
-"""Build terminal-style SVG art and result text from actual notebook evidence."""
-import json
+#!/usr/bin/env python3
+"""Regenerate the README art: the ANSI Shadow banner and the info card.
+
+Reads banner.txt (figlet rows) and art.txt (braille art) and writes
+banner-dark.svg, banner-light.svg, card-dark.svg and card-light.svg next to
+this file. Run it by hand after changing a value below; the SVGs are
+committed. Standard library only.
+"""
 from pathlib import Path
-import subprocess
-import sys
 from xml.sax.saxutils import escape
 
-HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
-MONO = "ui-monospace,Consolas,'Liberation Mono',monospace"
-GLYPHS = {
-    "M": ["#   #", "## ##", "# # #", "#   #", "#   #", "#   #", "#   #"],
-    "L": ["#    ", "#    ", "#    ", "#    ", "#    ", "#    ", "#####"],
-    "A": [" ### ", "#   #", "#   #", "#####", "#   #", "#   #", "#   #"],
-    "B": ["#### ", "#   #", "#   #", "#### ", "#   #", "#   #", "#### "],
-    " ": ["     "] * 7,
-}
+ROOT = Path(__file__).parent
+
+# ------------------------------------------------------------------ config
+
+NAME = "ML-LAB"
+
 THEMES = {
-    "dark": {"fg": "#e6edf3", "muted": "#8b949e", "accent": "#80e0ff", "green": "#79d6a4", "line": "#30363d"},
-    "light": {"fg": "#1f2328", "muted": "#667085", "accent": "#0969a6", "green": "#1a7f37", "line": "#d0d7de"},
+    "dark": {
+        "ramp": ["#c9f7e0", "#79e0b0", "#2fae7c"],
+        "glow": 0.55,
+        "fg": "#e6edf3", "muted": "#8b949e", "accent": "#79e0b0", "pos": "#3fb950",
+        "bar": ["#e3fbef", "#c9f7e0", "#a4efc9", "#79e0b0", "#52c995", "#2fae7c", "#228a62", "#17664a"],
+    },
+    "light": {
+        "ramp": ["#1f9d6a", "#147a52", "#0b5a3c"],
+        "glow": 0,
+        "fg": "#1f2328", "muted": "#667085", "accent": "#147a52", "pos": "#1a7f37",
+        "bar": ["#c3efd9", "#94e0bb", "#5cc898", "#2fae7c", "#1f9d6a", "#147a52", "#0f6544", "#0b5a3c"],
+    },
 }
 
+PROMPT_USER, PROMPT_CMD = "hafiz@ml-lab", "./fit --labs"
+TAGLINE = "eight labs, one notebook each"
+# Rows are (label, value) or (label, value, opts). opts may hold
+#   "color": {"dark": "#...", "light": "#..."}  label colour for this row
+#   "cells": (filled, total)                   a row of small cells after the value
+GROUPS = [
+    [
+        ("course", "teb3123 machine learning, utp"),
+        ("labs", "2 of 8 done", {"cells": (2, 8)}),
+        ("stack", "python 3.12 · scikit-learn 1.9"),
+        ("data", "12 course datasets"),
+    ],
+    [
+        ("lab 01", "features and selection"),
+        ("lab 02", "the supervised workflow"),
+        ("next", "lab 03, supervised models"),
+    ],
+    [
+        ("titanic", "0.837 test roc auc"),
+        ("features", "auc 0.842 to 0.872"),
+        ("bikes", "56.5 rentals/hour mae"),
+        ("cancer", "0.96 recall at 0.30"),
+    ],
+]
+FOOTER_OK, FOOTER = "[ ok ]", "both notebooks run top to bottom"
+CARD_LABEL = ("ML-LAB, my worked notebooks for UTP's TEB3123 Machine Learning: two of eight labs "
+              "done, feature engineering and selection and the supervised workflow, with a Titanic "
+              "survival model at 0.837 test ROC AUC")
 
-def text(x, y, value, theme, kind="fg", size=14):
-    return f'<text x="{x}" y="{y}" font-size="{size}" fill="{theme[kind]}">{escape(str(value))}</text>'
+
+# ------------------------------------------------------------------ shared
+
+MONO = "ui-monospace,'SFMono-Regular','SF Mono',Menlo,Consolas,'Liberation Mono',monospace"
 
 
-def banner(theme):
-    p = [f'<svg xmlns="http://www.w3.org/2000/svg" width="850" height="205" viewBox="0 0 850 205" role="img" aria-label="ML LAB"><g font-family="{MONO}">']
-    for letter_index, letter in enumerate("ML LAB"):
-        for y, row in enumerate(GLYPHS[letter]):
-            for x, char in enumerate(row):
-                if char == "#":
-                    p.append(f'<rect x="{108 + (letter_index * 6 + x) * 18}" y="{24 + y * 18}" width="15" height="15" rx="1" fill="{theme["accent"]}" opacity="{1 - y * 0.07}"/>')
-    p += [text(108, 185, "hafiz@ml-lab:~$ learn --with-evidence", theme, "muted", 15), "</g></svg>"]
+def ramp_def(t, y1, y2):
+    r = t["ramp"]
+    return (f'<linearGradient id="ramp" gradientUnits="userSpaceOnUse" '
+            f'x1="0" y1="{y1:.0f}" x2="0" y2="{y2:.0f}">'
+            f'<stop offset="0" stop-color="{r[0]}"/>'
+            f'<stop offset="0.55" stop-color="{r[1]}"/>'
+            f'<stop offset="1" stop-color="{r[2]}"/>'
+            "</linearGradient>")
+
+# ------------------------------------------------------------------ banner
+
+BANNER_W = 850
+PAD = 24
+BANNER_MAX_FS = 18  # short names stay this size and centre instead of filling
+
+
+def banner(theme, lines):
+    t = THEMES[theme]
+    rows = len(lines)
+    cols = len(lines[0])
+    fs = min(round((BANNER_W - 2 * PAD) / (cols * 0.6), 2), BANNER_MAX_FS)
+    text_len = round(cols * 0.6 * fs)
+    x = round((BANNER_W - text_len) / 2)
+    lh = round(fs * 1.062, 2)
+    h = round(2 * PAD + fs + (rows - 1) * lh)
+    p = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {BANNER_W} {h}" '
+        f'width="{BANNER_W}" height="{h}" role="img" aria-label="{escape(NAME)}">',
+        "<defs>" + ramp_def(t, PAD, h - PAD),
+    ]
+    if t["glow"]:
+        p.append(
+            '<filter id="glow" x="-4%" y="-30%" width="108%" height="160%">'
+            '<feGaussianBlur stdDeviation="3" result="b"/>'
+            f'<feComponentTransfer in="b" result="g"><feFuncA type="linear" slope="{t["glow"]}"/></feComponentTransfer>'
+            '<feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>'
+            "</filter>"
+        )
+    p.append("</defs>")
+    p.append(f"<style>text {{ font-family: {MONO}; font-size: {fs}px; "
+             "fill: url(#ramp); white-space: pre; }</style>")
+    p.append('<g filter="url(#glow)">' if t["glow"] else "<g>")
+    for i, line in enumerate(lines):
+        y = PAD + fs + i * lh
+        p.append(f'<text x="{x}" y="{y:.1f}" textLength="{text_len}" '
+                 f'lengthAdjust="spacing" xml:space="preserve">{escape(line)}</text>')
+    p.append("</g>")
+    p.append("</svg>")
     return "\n".join(p)
 
+# -------------------------------------------------------------------- card
 
-def card(theme, a, b):
-    p = [f'<svg xmlns="http://www.w3.org/2000/svg" width="850" height="305" viewBox="0 0 850 305" role="img" aria-label="Two worked machine-learning labs and measured evidence"><g font-family="{MONO}">']
-    p += [text(28, 32, "./experiment --trace", theme, "accent", 16),
-          text(28, 67, "01 / features", theme), text(28, 95, "inspect -> engineer -> select", theme, "muted", 13),
-          text(28, 145, "02 / supervised", theme), text(28, 173, "split -> fit -> evaluate -> save", theme, "muted", 13),
-          text(28, 224, "[ok] two executed notebooks", theme, "green", 13),
-          text(28, 252, "12 source files / seed 42", theme, "muted", 13),
-          f'<line x1="403" y1="25" x2="403" y2="269" stroke="{theme["line"]}"/>',
-          text(438, 32, "hafiz@ml-lab:~$ cat ./evidence", theme, "accent", 14)]
-    rows = [
-        ("runtime", "python 3.12 / .venv"),
-        ("features", f"{a['feature_auc']['raw + engineered']:.3f} validation auc"),
-        ("selection", f"{a['student_mae']['lasso']:.3f} lasso mae"),
-        ("titanic", f"{b['titanic_final']['test_roc_auc']:.3f} final test auc"),
-        ("bike/hour", f"{b['bike_hourly']['mae']:.1f} rentals mae"),
-        ("models", "pipeline + json card"),
+W = 850
+GROUP_GAP = 40
+LBL_X, VAL_X = 460, 566
+# art.txt is braille, 2x4 dots per char. Fonts space braille dots unevenly,
+# so each dot is drawn on an even grid instead of as text.
+ART_X, DOT_W, DOT_H, DOT_R = 24, 4.05, 4.475, 1.25
+BITS = [(0, 0, 0x01), (0, 1, 0x02), (0, 2, 0x04), (1, 0, 0x08),
+        (1, 1, 0x10), (1, 2, 0x20), (0, 3, 0x40), (1, 3, 0x80)]
+
+
+def art_path(art, art_y):
+    d = []
+    for row, line in enumerate(art):
+        for col, ch in enumerate(line):
+            code = ord(ch) - 0x2800
+            if not 0 <= code <= 0xFF:
+                continue
+            for dx, dy, bit in BITS:
+                if code & bit:
+                    x = ART_X + (col * 2 + dx + 0.5) * DOT_W
+                    y = art_y + (row * 4 + dy + 0.5) * DOT_H
+                    d.append(f"M{x:.1f} {y:.1f}h0")
+    return "".join(d)
+
+
+def text_height():
+    rows = sum(len(g) for g in GROUPS)
+    return 114 + rows * 20 + len(GROUPS) * GROUP_GAP - 4 + 26
+
+
+def card(theme, art):
+    t = THEMES[theme]
+    art_h = len(art) * 4 * DOT_H
+    H = round(max(text_height() + 32, art_h + 2 * 40))
+    art_y = (H - art_h) / 2
+    p = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" '
+        f'height="{H}" role="img" aria-label="{escape(CARD_LABEL)}">',
+        "<defs>" + ramp_def(t, art_y, art_y + art_h) + "</defs>",
+        f"""<style>
+    text {{ font-family: {MONO}; }}
+    .fg  {{ fill: {t['fg']}; font-size: 14px; }}
+    .mut {{ fill: {t['muted']}; font-size: 14px; }}
+    .acc {{ fill: {t['accent']}; font-size: 14px; }}
+    .pos {{ fill: {t['pos']}; font-size: 14px; }}
+    .b   {{ font-weight: 600; }}
+    .sm  {{ font-size: 12px; }}
+    </style>""",
+        f'<path d="{art_path(art, art_y)}" fill="none" stroke="url(#ramp)" '
+        f'stroke-width="{2 * DOT_R}" stroke-linecap="round"/>',
+        f'<text x="{LBL_X}" y="52" xml:space="preserve"><tspan class="acc b">{escape(PROMPT_USER)}</tspan>'
+        f'<tspan class="mut">:~$</tspan><tspan class="fg"> {escape(PROMPT_CMD)}</tspan><tspan class="acc">▊'
+        '<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.2s" '
+        'repeatCount="indefinite"/></tspan></text>',
+        f'<text class="mut" x="{LBL_X}" y="78" font-style="italic">{escape(TAGLINE)}</text>',
+        f'<line x1="{LBL_X}" y1="92" x2="826" y2="92" stroke="{t["muted"]}" '
+        'stroke-opacity="0.45" stroke-width="1"/>',
     ]
-    for i, (key, value) in enumerate(rows):
-        p += [text(438, 72 + i * 28, key, theme, "muted", 13), text(555, 72 + i * 28, value, theme, "fg", 13)]
-    p += [text(438, 268, "[ok] reproducible course experiments", theme, "green", 12), "</g></svg>"]
+    y = 114
+    for group in GROUPS:
+        for row in group:
+            k, v = row[0], row[1]
+            opts = row[2] if len(row) > 2 else {}
+            color = opts.get("color", {}).get(theme)
+            style = f' style="fill:{color}"' if color else ""
+            p.append(f'<text class="fg" x="{VAL_X}" y="{y}" xml:space="preserve"><tspan class="acc"{style} '
+                     f'x="{LBL_X}">{escape(k)}</tspan><tspan x="{VAL_X}">{escape(v)}</tspan></text>')
+            if "cells" in opts:
+                filled, total = opts["cells"]
+                x0 = VAL_X + 8.4 * len(v) + 12
+                for c in range(total):
+                    fill = t["accent"] if c < filled else t["muted"]
+                    p.append(f'<rect x="{x0 + c * 20:.0f}" y="{y - 10}" width="14" height="10" '
+                             f'rx="2" fill="{fill}"/>')
+            y += 20
+        y += GROUP_GAP
+    y -= 4
+    for i, c in enumerate(t["bar"]):
+        p.append(f'<rect x="{LBL_X + i * 22}" y="{y - 10}" width="16" height="10" rx="2" fill="{c}"/>')
+    p.append(f'<text class="sm" x="{LBL_X}" y="{y + 26}" xml:space="preserve"><tspan class="pos sm">'
+             f'{escape(FOOTER_OK)}</tspan><tspan class="mut sm"> {escape(FOOTER)}</tspan></text>')
+    p.append("</svg>")
     return "\n".join(p)
 
 
 def main():
-    a = json.loads((ROOT / "results/lab01/summary.json").read_text(encoding="utf-8"))
-    b = json.loads((ROOT / "results/lab02/summary.json").read_text(encoding="utf-8"))
-    predictor = subprocess.run([sys.executable, str(ROOT / "predict_passenger.py"),
-        "--pclass", "2", "--sex", "female", "--age", "30", "--fare", "20"],
-        check=True, text=True, capture_output=True)
-    values = {
-        "RAW_AUC": f"{a['feature_auc']['raw columns']:.3f}",
-        "ENGINEERED_AUC": f"{a['feature_auc']['raw + engineered']:.3f}",
-        "CV_AUC": f"{b['titanic_final']['cv_roc_auc']:.3f}",
-        "TEST_AUC": f"{b['titanic_final']['test_roc_auc']:.3f}",
-        "HOURLY_MAE": f"{b['bike_hourly']['mae']:.1f}",
-        "DAILY_MAE": f"{b['bike_daily']['mae']:.1f}",
-        "LASSO_MAE": f"{a['student_mae']['lasso']:.3f}",
-        "LASSO_KEPT": str(a['lasso_retained']),
-        "INSURANCE_MAE": f"{b['insurance']['linear regression']['mae']:,.2f}",
-        "HEART_AUC": f"{b['heart']['roc_auc']:.3f}",
-        "HEART_ACC": f"{b['heart']['accuracy']:.3f}",
-        "FN_HIGH": str(b['cancer_thresholds'][0]['fn']),
-        "FN_LOW": str(b['cancer_thresholds'][1]['fn']),
-        "FP_LOW": str(b['cancer_thresholds'][1]['fp']),
-        "CLI_OUTPUT": predictor.stdout.strip(),
-    }
-    template = (HERE / "template.md").read_text(encoding="utf-8")
-    for key, value in values.items():
-        template = template.replace("{{" + key + "}}", value)
-    (ROOT / "README.md").write_text(template, encoding="utf-8", newline="\n")
-    for name, theme in THEMES.items():
-        (HERE / f"banner-{name}.svg").write_text(banner(theme), encoding="utf-8")
-        (HERE / f"card-{name}.svg").write_text(card(theme, a, b), encoding="utf-8")
-    report = ["# Measured results / Labs 01 and 02", "", "Generated from the executed notebook summaries. Seed: 42.", "",
-              "## Lab 01 / Feature engineering", "", "| Features | Validation ROC AUC |", "|---|---:|"]
-    report += [f"| {name} | {value:.4f} |" for name, value in a["feature_auc"].items()]
-    report += ["", "Raw and engineered features use identical row indices and logistic regression.",
-               "Additional cabin and fare-per-family features do not improve this split further.", "",
-               "## Lab 01 / Selection", "", "| Model | Validation MAE / grade points |", "|---|---:|"]
-    report += [f"| {name} | {value:.4f} |" for name, value in a["student_mae"].items()]
-    report += ["", f"Lasso retained {a['lasso_retained']} of {a['lasso_encoded_columns']} encoded columns.",
-               "The G2 row is a deliberate leakage demonstration, not a valid enrolment forecast.",
-               "The final row also excludes accumulated absences. All other candidate fields need",
-               "a prediction-time availability check for real use.", "",
-               "## Lab 02 / Regression", "", "| Model | Validation MAE | RMSE | R-squared |", "|---|---:|---:|---:|"]
-    regressions = dict(b["insurance"])
-    regressions["bike daily forest"] = b["bike_daily"]
-    regressions["bike hourly forest"] = b["bike_hourly"]
-    report += [f"| {name} | {scores['mae']:.3f} | {scores['rmse']:.3f} | {scores['r2']:.4f} |" for name, scores in regressions.items()]
-    report += ["", "Insurance errors are dollars; bike errors are daily/hourly rentals.",
-               "Bike validation contains the last 20% of the series, in time order.", "",
-               "## Lab 02 / Classification", "", "| Model / evaluation | Accuracy | ROC AUC |", "|---|---:|---:|"]
-    report += [f"| Titanic {name} / development validation | {scores['accuracy']:.4f} | {scores['roc_auc']:.4f} |" for name, scores in b["titanic_validation"].items()]
-    report += [f"| Titanic tuned logistic / final test | {b['titanic_final']['test_accuracy']:.4f} | {b['titanic_final']['test_roc_auc']:.4f} |",
-               f"| Heart disease / validation | {b['heart']['accuracy']:.4f} | {b['heart']['roc_auc']:.4f} |", "",
-               f"Titanic baseline accuracy: {b['titanic_majority_baseline']:.4f}. Best grid: `{b['titanic_final']['best_parameters']}`.",
-               f"Mean five-fold CV AUC: {b['titanic_final']['cv_roc_auc']:.4f}; 668 development rows and 223 reserved test rows.",
-               "The handout reuses one split for Part C and the final test; the worked notebook",
-               "reserves the final test before Part C, so its model-comparison results differ.", "",
-               f"Breast-cancer validation ROC AUC: {b['cancer']['roc_auc']:.4f}; average precision: {b['cancer']['average_precision']:.4f}.", "",
-               "## Lab 02 / Threshold decision", "", "| Threshold | TN | FP | FN | TP | Precision | Recall |", "|---|---:|---:|---:|---:|---:|---:|"]
-    report += [f"| {s['threshold']:.2f} | {s['tn']} | {s['fp']} | {s['fn']} | {s['tp']} | {s['precision']:.4f} | {s['recall']:.4f} |" for s in b["cancer_thresholds"]]
-    report += ["", "The lower threshold avoids two missed positives with no extra false alerts in this sample.",
-               "This is validation evidence for the [coursework decision memo](../results/lab02/decision_memo.md).", "",
-               "## Source evidence", "",
-               "- [Lab 01 summary](../results/lab01/summary.json)",
-               "- [Lab 02 summary](../results/lab02/summary.json)",
-               "- [Feature comparison](../results/lab01/feature_comparison.csv)",
-               "- [Student selection](../results/lab01/student_feature_selection.csv)",
-               "- [Insurance metrics](../results/lab02/insurance_metrics.csv)",
-               "- [Titanic CV table](../results/lab02/titanic_cv_results.csv)",
-               "- [Titanic model card](../models/titanic_survival_card.json)",
-               "- [Threshold counts](../results/lab02/cancer_thresholds.csv)", ""]
-    (ROOT / "docs/results.md").write_text("\n".join(report), encoding="utf-8")
-    print("Built README, dark/light art, and measured results report.")
+    lines = (ROOT / "banner.txt").read_text(encoding="utf-8").rstrip("\n").split("\n")
+    w = max(len(l) for l in lines)
+    lines = [l.ljust(w) for l in lines]
+    art = (ROOT / "art.txt").read_text(encoding="utf-8").rstrip("\n").split("\n")
+    for theme in THEMES:
+        for name, svg in ((f"banner-{theme}.svg", banner(theme, lines)),
+                          (f"card-{theme}.svg", card(theme, art))):
+            (ROOT / name).write_text(svg, encoding="utf-8", newline="\n")
+            print(f"wrote {name}")
+    print(f"banner: {w} cols, art: {len(art[0])} x {len(art)}")
 
 
 if __name__ == "__main__":
