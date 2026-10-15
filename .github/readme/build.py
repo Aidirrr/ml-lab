@@ -38,26 +38,27 @@ TAGLINE = "eight labs, one notebook each"
 GROUPS = [
     [
         ("course", "teb3123 machine learning, utp"),
-        ("labs", "2 of 8 done", {"cells": (2, 8)}),
+        ("labs", "3 of 8 done", {"cells": (3, 8)}),
         ("stack", "python 3.12 · scikit-learn 1.9"),
         ("data", "12 course datasets"),
     ],
     [
         ("lab 01", "features and selection"),
         ("lab 02", "the supervised workflow"),
-        ("next", "lab 03, supervised models"),
+        ("lab 03", "model families"),
+        ("next", "lab 04, clustering and pca"),
     ],
     [
         ("titanic", "0.837 test roc auc"),
         ("features", "auc 0.842 to 0.872"),
         ("bikes", "56.5 rentals/hour mae"),
-        ("cancer", "0.96 recall at 0.30"),
+        ("svm", "0.997 test roc auc"),
     ],
 ]
-FOOTER_OK, FOOTER = "[ ok ]", "both notebooks run top to bottom"
-CARD_LABEL = ("ML-LAB, my worked notebooks for UTP's TEB3123 Machine Learning: two of eight labs "
-              "done, feature engineering and selection and the supervised workflow, with a Titanic "
-              "survival model at 0.837 test ROC AUC")
+FOOTER_OK, FOOTER = "[ ok ]", "every notebook runs top to bottom"
+CARD_LABEL = ("ML-LAB, my worked notebooks for UTP's TEB3123 Machine Learning: three of eight labs "
+              "done, covering feature engineering and selection, the supervised workflow and the "
+              "main model families, with a breast cancer SVM at 0.997 test ROC AUC")
 
 
 # ------------------------------------------------------------------ shared
