@@ -15,24 +15,25 @@
 </div>
 
 <p align="center">
-  <a href="#hafizml-lab-ls-all_experiments"><img src="https://img.shields.io/badge/labs-3_of_8_done-79e0b0?style=for-the-badge&labelColor=161b22" alt="labs: 3 of 8 done"></a>
-  <a href="#hafizml-lab-cat-resultssummaryjson"><img src="https://img.shields.io/badge/titanic-0.837_test_roc_auc-c9f7e0?style=for-the-badge&labelColor=161b22" alt="titanic: 0.837 test ROC AUC"></a>
-  <a href="#hafizml-lab-python--m-venv-venv"><img src="https://img.shields.io/badge/python-3.12_%C2%B7_scikit--learn_1.9-3fb950?style=for-the-badge&labelColor=161b22" alt="python 3.12, scikit-learn 1.9"></a>
+  <a href="https://github.com/Aidirrr"><img src="https://img.shields.io/badge/author-Khaidhir-38bdf8?style=for-the-badge&labelColor=161b22&logo=github" alt="author: Khaidhir"></a>
+  <a href="#khaidhirml-lab-ls-all_experiments"><img src="https://img.shields.io/badge/labs-3_of_8_done-79e0b0?style=for-the-badge&labelColor=161b22" alt="labs: 3 of 8 done"></a>
+  <a href="#khaidhirml-lab-cat-resultssummaryjson"><img src="https://img.shields.io/badge/titanic-0.837_test_roc_auc-c9f7e0?style=for-the-badge&labelColor=161b22" alt="titanic: 0.837 test ROC AUC"></a>
+  <a href="#khaidhirml-lab-python--m-venv-venv"><img src="https://img.shields.io/badge/python-3.12_%C2%B7_scikit--learn_1.9-3fb950?style=for-the-badge&labelColor=161b22" alt="python 3.12, scikit-learn 1.9"></a>
 </p>
 
 ```text
-hafiz@ml-lab:~$ cat ./about
-worked notebooks for teb3123 machine learning at utp, one per lab. each one
-follows its handout part by part, does the try-it exercises, answers the
+khaidhir@ml-lab:~$ cat ./about
+worked notebooks for teb3123 machine learning at utp by khaidhir razin (@aidirrr).
+each one follows its handout part by part, does the try-it exercises, answers the
 questions, and saves every chart and table it draws.
 
-hafiz@ml-lab:~$ cd all_experiments
-hafiz@ml-lab:~/all_experiments$ python predict_passenger.py --pclass 2 --sex female --age 30 --fare 20
+khaidhir@ml-lab:~$ cd all_experiments
+khaidhir@ml-lab:~/all_experiments$ python predict_passenger.py --pclass 2 --sex female --age 30 --fare 20
 survival probability: 0.805  ->  survived
 (model: logistic regression pipeline, test ROC AUC 0.837)
 ```
 
-### <samp>hafiz@ml-lab:~$ jupyter lab</samp>
+### <samp>khaidhir@ml-lab:~$ jupyter lab</samp>
 
 <p align="center">
   <img src=".github/readme/shots/jupyterlab.png" alt="JupyterLab with the Lab 2 notebook open on the hourly bike demand cell: the code, actual and predicted rentals for the first validation week, and the observations underneath" width="850">
@@ -42,7 +43,7 @@ Each part opens with a short note on what it does and closes with an **Observati
 says what the numbers show. Above is Lab 2, Part B: the forest picks up the two commuter peaks of
 a working day and misses a rainy Friday morning.
 
-### <samp>hafiz@ml-lab:~$ ls all_experiments/</samp>
+### <samp>khaidhir@ml-lab:~$ ls all_experiments/</samp>
 
 | lab | notebook | topic | datasets | status |
 |:--|:--|:--|:--|:--|
@@ -58,7 +59,7 @@ a working day and misses a rainy Friday morning.
 [`predict_passenger.py`](all_experiments/predict_passenger.py) sits next to the notebooks and
 loads the model Lab 2 saves, without retraining.
 
-### <samp>hafiz@ml-lab:~$ cat ./marking-guide</samp>
+### <samp>khaidhir@ml-lab:~$ cat ./marking-guide</samp>
 
 Where each handout task lives. Every notebook is committed with its outputs, so GitHub shows
 every result without running anything.
@@ -80,7 +81,7 @@ every result without running anything.
 | 03 | Verification checklist | the section after *Try it yourself* |
 | 03 | Check your understanding (3 questions) | the last section |
 
-### <samp>hafiz@ml-lab:~$ open results/lab01/</samp>
+### <samp>khaidhir@ml-lab:~$ open results/lab01/</samp>
 
 <table>
   <tr>
@@ -105,7 +106,7 @@ Predicting final grades at enrolment: ten columns do as well as thirty (MAE 2.14
 and lasso does best at 2.08 with 16 columns. The orange bar is the trap. Add the second-period
 grade `G2` and the error drops to 0.76, a score nobody can get on enrolment day.
 
-### <samp>hafiz@ml-lab:~$ open results/lab02/</samp>
+### <samp>khaidhir@ml-lab:~$ open results/lab02/</samp>
 
 <table>
   <tr>
@@ -134,7 +135,7 @@ grade `G2` and the error drops to 0.76, a score nobody can get on enrolment day.
   </tr>
 </table>
 
-### <samp>hafiz@ml-lab:~$ open results/lab03/</samp>
+### <samp>khaidhir@ml-lab:~$ open results/lab03/</samp>
 
 <p align="center">
   <img src="results/lab03/cancer_decision_boundaries.png" alt="Decision regions on tumour radius and texture for logistic regression (0.88 accuracy), KNN with k=11 (0.90) and Gaussian naive Bayes (0.86), with the validation tumours plotted on top" width="850">
@@ -160,7 +161,7 @@ for Titanic in Lab 2.
   </tr>
 </table>
 
-### <samp>hafiz@ml-lab:~$ cat results/*/summary.json</samp>
+### <samp>khaidhir@ml-lab:~$ cat results/*/summary.json</samp>
 
 | lab | experiment | result |
 |:--|:--|:--|
@@ -181,12 +182,12 @@ for Titanic in Lab 2.
 The decision memo for the cancer threshold closes Part C of
 [Lab 2](all_experiments/lab02_supervised_workflow_worked.ipynb).
 
-### <samp>hafiz@ml-lab:~$ python -m venv .venv</samp>
+### <samp>khaidhir@ml-lab:~$ python -m venv .venv</samp>
 
 Route A from the course setup chapter, on Windows with Python 3.12:
 
 ```powershell
-git clone https://github.com/hafizmnazman/ml-lab.git
+git clone https://github.com/Aidirrr/ml-lab.git
 cd ml-lab
 py -3.12 -m venv .venv
 .venv\Scripts\Activate.ps1
@@ -199,7 +200,7 @@ On macOS or Linux, create it with `python3 -m venv .venv` and activate it with
 the notebook, pick the `.venv` interpreter as the kernel and press **Run All**. Both start the
 notebook inside `all_experiments/`, which is where the code expects to run.
 
-### <samp>hafiz@ml-lab:~$ tree -L 2</samp>
+### <samp>khaidhir@ml-lab:~$ tree -L 2</samp>
 
 ```text
 all_datasets/        the 12 course datasets, unchanged (the digits zip stays zipped for lab 4)
@@ -214,7 +215,7 @@ course_materials/    the lecturer's handouts, kept on this machine only (gitigno
 The layout follows the course setup chapter, so each new lab adds one
 `labNN_..._worked.ipynb` and one `results/labNN/`.
 
-### <samp>hafiz@ml-lab:~$ cat ./notes</samp>
+### <samp>khaidhir@ml-lab:~$ cat ./notes</samp>
 
 - Part D of Lab 2 and of Lab 3 each reuse a split from earlier in the lab (Part C and Part A),
   as the handouts do, so those test rows had already been scored once. The tuning never sees
@@ -225,7 +226,13 @@ The layout follows the course setup chapter, so each new lab adds one
 - The numbers on this page come from one run with `random_state=42` on the pinned versions.
   Other package versions can move the last decimal.
 
-### <samp>hafiz@ml-lab:~$ cat ./credits</samp>
+### <samp>khaidhir@ml-lab:~$ cat ./author</samp>
+
+- **Author:** Khaidhir Razin ([@Aidirrr](https://github.com/Aidirrr))
+- **Course:** TEB3123 Machine Learning, Universiti Teknologi PETRONAS (UTP)
+- **Repository:** [github.com/Aidirrr/ml-lab](https://github.com/Aidirrr/ml-lab)
+
+### <samp>khaidhir@ml-lab:~$ cat ./credits</samp>
 
 The datasets are the course's copies of these Kaggle datasets, and each source page lists its
 licence: [Titanic](https://www.kaggle.com/datasets/yasserh/titanic-dataset),

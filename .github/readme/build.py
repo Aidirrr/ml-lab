@@ -30,8 +30,8 @@ THEMES = {
     },
 }
 
-PROMPT_USER, PROMPT_CMD = "hafiz@ml-lab", "./fit --labs"
-TAGLINE = "eight labs, one notebook each"
+PROMPT_USER, PROMPT_CMD = "khaidhir@ml-lab", "./fit --labs"
+TAGLINE = "eight labs · by khaidhir razin"
 # Rows are (label, value) or (label, value, opts). opts may hold
 #   "color": {"dark": "#...", "light": "#..."}  label colour for this row
 #   "cells": (filled, total)                   a row of small cells after the value
@@ -56,7 +56,7 @@ GROUPS = [
     ],
 ]
 FOOTER_OK, FOOTER = "[ ok ]", "every notebook runs top to bottom"
-CARD_LABEL = ("ML-LAB, my worked notebooks for UTP's TEB3123 Machine Learning: three of eight labs "
+CARD_LABEL = ("ML-LAB, Khaidhir's worked notebooks for UTP's TEB3123 Machine Learning: three of eight labs "
               "done, covering feature engineering and selection, the supervised workflow and the "
               "main model families, with a breast cancer SVM at 0.997 test ROC AUC")
 
