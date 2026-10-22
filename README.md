@@ -67,7 +67,7 @@ In the pursuit of beneficial knowledge (*'Ilm Nafi'*), this laboratory is ground
 | **07** | `lab07_deep_learning_cnn_worked` | Deep representation learning with Convolutional Neural Networks | Handwritten Digits | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
 | **08** | `lab08_deep_learning_lstm_worked` | Sequence modeling and temporal forecasting with LSTMs | Hourly Bike Sharing | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
 
-> 📌 **Standalone Inference Tool:** [`predict_passenger.py`](all_experiments/predict_passenger.py) provides instant command-line scoring using the serialized Lab 2 Titanic pipeline without retraining.
+> 📌 **Standalone Inference Notebook & CLI:** [`predict_passenger.ipynb`](all_experiments/predict_passenger.ipynb) and [`scripts/predict_passenger.py`](scripts/predict_passenger.py) provide instant scoring using the serialized Lab 2 Titanic pipeline without retraining.
 
 ---
 
@@ -83,7 +83,7 @@ For direct audit by **GA Reeyan Afzal** and the course instructor, this index ma
 | **01** | *Check your understanding:* 3 Questions | Final Section (Cell 27) | Detailed markdown answers covering distance metrics, leakage, and regularized sparsity. |
 | **02** | **Parts A to E** | [`lab02_supervised_workflow_worked.ipynb`](all_experiments/lab02_supervised_workflow_worked.ipynb) | OLS vs Ridge on Insurance, Daily & Hourly Bike Demand, Titanic Classifiers, Cancer Calibration. |
 | **02** | *Decision Memo:* Clinical Threshold Choice | End of Part C | Formal memo justifying the shift from 0.50 to 0.30 threshold (reducing missed malignancies by 50%). |
-| **02** | *Model Persistence & Terminal CLI* | Part E & [`predict_passenger.py`](all_experiments/predict_passenger.py) | Saved to `models/titanic_survival.joblib` and documented in `titanic_survival_card.json`. |
+| **02** | *Model Persistence & Inference* | Part E, [`predict_passenger.ipynb`](all_experiments/predict_passenger.ipynb) & [`scripts/predict_passenger.py`](scripts/predict_passenger.py) | Saved to `models/titanic_survival.joblib` and documented in `titanic_survival_card.json`. |
 | **02** | *Try it yourself:* Heart Disease Classifier | Section after Part E | Logistic regression pipeline yielding 0.883 accuracy and 0.932 ROC AUC. |
 | **02** | *Check your understanding:* 3 Lab + Ch. 4 Questions | Final Two Sections | Comprehensive answers addressing temporal splits, calibration, and metric trade-offs. |
 | **03** | **Parts A to D** | [`lab03_supervised_models_worked.ipynb`](all_experiments/lab03_supervised_models_worked.ipynb) | KNN vs Naive Bayes, Decision Tree Depth, Ensemble Regressors, Hyperplane Margin Tuning. |
@@ -255,10 +255,10 @@ models/
 
 ### Running Interactive Passenger Prediction:
 ```bash
-python all_experiments/predict_passenger.py --pclass 2 --sex female --age 30 --fare 20
+python scripts/predict_passenger.py --pclass 2 --sex female --age 30 --fare 20
 ```
 ```text
-survival probability: 0.805  ->  survived
+survival probability: 0.822  ->  survived
 (model: logistic regression pipeline, test ROC AUC 0.837)
 ```
 
@@ -308,18 +308,20 @@ ml-lab/
 │   ├── card-light.svg           # Islamic geometric dossier card (light mode)
 │   └── build.py                 # Pure standard-library SVG artwork generator
 ├── all_datasets/                # The 12 official course benchmark datasets
-├── all_experiments/             # Worked, self-contained laboratory notebooks
+├── all_experiments/             # Worked laboratory notebooks (strictly .ipynb format)
 │   ├── lab01_features_worked.ipynb
 │   ├── lab02_supervised_workflow_worked.ipynb
 │   ├── lab03_supervised_models_worked.ipynb
 │   ├── lab04_clustering_pca_worked.ipynb
-│   └── predict_passenger.py     # Standalone CLI inference client
+│   └── predict_passenger.ipynb  # Interactive passenger inference notebook
 ├── models/                      # Serialized pipelines and model cards
 ├── results/                     # High-resolution visual artifacts and metric summaries
 │   ├── lab01/
 │   ├── lab02/
 │   ├── lab03/
 │   └── lab04/
+├── scripts/                     # Standalone helper and CLI inference scripts
+│   └── predict_passenger.py     # Terminal inference client
 ├── requirements.txt             # Course dependencies pinned to reproduction versions
 └── README.md                    # Academic dossier and laboratory documentation
 ```
