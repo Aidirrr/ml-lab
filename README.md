@@ -68,8 +68,6 @@ In the pursuit of beneficial knowledge (*'Ilm Nafi'*), this laboratory is ground
 | **07** | `lab07_deep_learning_cnn_worked` | Deep representation learning with Convolutional Neural Networks | Handwritten Digits | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
 | **08** | `lab08_deep_learning_lstm_worked` | Sequence modeling and temporal forecasting with LSTMs | Hourly Bike Sharing | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
 
-> 📌 **Standalone Inference Notebook & CLI:** [`predict_passenger.ipynb`](all_experiments/predict_passenger.ipynb) and [`scripts/predict_passenger.py`](scripts/predict_passenger.py) provide instant scoring using the serialized Lab 2 Titanic pipeline without retraining.
-
 ---
 
 ## ❖ GA Marking Rubric & Verification Index | دليل التحقق والتقييم
@@ -84,7 +82,7 @@ For direct audit by **GA Reeyan Afzal** and the course instructor, this index ma
 | **01** | *Check your understanding:* 3 Questions | Final Section (Cell 27) | Detailed markdown answers covering distance metrics, leakage, and regularized sparsity. |
 | **02** | **Parts A to E** | [`lab02_supervised_workflow_worked.ipynb`](all_experiments/lab02_supervised_workflow_worked.ipynb) | OLS vs Ridge on Insurance, Daily & Hourly Bike Demand, Titanic Classifiers, Cancer Calibration. |
 | **02** | *Decision Memo:* Clinical Threshold Choice | End of Part C | Formal memo justifying the shift from 0.50 to 0.30 threshold (reducing missed malignancies by 50%). |
-| **02** | *Model Persistence & Inference* | Part E, [`predict_passenger.ipynb`](all_experiments/predict_passenger.ipynb) & [`scripts/predict_passenger.py`](scripts/predict_passenger.py) | Saved to `models/titanic_survival.joblib` and documented in `titanic_survival_card.json`. |
+| **02** | *Model Persistence & Reloading* | Part E | Saved to `models/titanic_survival.joblib` and reloaded to score sample passengers. |
 | **02** | *Try it yourself:* Heart Disease Classifier | Section after Part E | Logistic regression pipeline yielding 0.883 accuracy and 0.932 ROC AUC. |
 | **02** | *Check your understanding:* 3 Lab + Ch. 4 Questions | Final Two Sections | Comprehensive answers addressing temporal splits, calibration, and metric trade-offs. |
 | **03** | **Parts A to D** | [`lab03_supervised_models_worked.ipynb`](all_experiments/lab03_supervised_models_worked.ipynb) | KNN vs Naive Bayes, Decision Tree Depth, Ensemble Regressors, Hyperplane Margin Tuning. |
@@ -275,25 +273,22 @@ models/
 └── digits_pca_logistic.joblib    # 29-component PCA + Logistic Regression pipeline (0.947 Acc)
 ```
 
-### 1. Interactive Titanic Survival Prediction:
-Execute via Jupyter Notebook [`predict_passenger.ipynb`](all_experiments/predict_passenger.ipynb) or from terminal:
-```bash
-python scripts/predict_passenger.py --pclass 2 --sex female --age 30 --fare 20
-```
-```text
-survival probability: 0.822  ->  survived
-(model: logistic regression pipeline, test ROC AUC 0.837)
-```
-
-### 2. Handwritten Digit Classification via PCA Pipeline:
+### Model Reloading & Scoring Quickstart:
 ```python
 import joblib
+import pandas as pd
 
-# Load fitted PCA (29 components) + Logistic Regression pipeline
-model = joblib.load("models/digits_pca_logistic.joblib")
+# 1. Score Titanic Survival with Saved Pipeline (Lab 2)
+titanic_model = joblib.load("models/titanic_survival.joblib")
+passenger = pd.DataFrame([{
+    "Pclass": 2, "Sex": "female", "Age": 30.0, "SibSp": 0, "Parch": 0, "Fare": 20.0, "Embarked": "S"
+}])
+prob = titanic_model.predict_proba(passenger)[0, 1]
+print(f"Survival probability: {prob:.3f}")
 
-# Predict on new 64-pixel images (values scaled 0-1)
-# predictions = model.predict(new_images_64)
+# 2. Classify 64-Pixel Images with Saved PCA Pipeline (Lab 4)
+pca_digits_model = joblib.load("models/digits_pca_logistic.joblib")
+# predictions = pca_digits_model.predict(new_images_64)
 ```
 
 ---
@@ -346,16 +341,13 @@ ml-lab/
 │   ├── lab01_features_worked.ipynb
 │   ├── lab02_supervised_workflow_worked.ipynb
 │   ├── lab03_supervised_models_worked.ipynb
-│   ├── lab04_clustering_pca_worked.ipynb
-│   └── predict_passenger.ipynb  # Interactive passenger inference notebook
+│   └── lab04_clustering_pca_worked.ipynb
 ├── models/                      # Serialized pipelines and model cards
 ├── results/                     # High-resolution visual artifacts and metric summaries
 │   ├── lab01/
 │   ├── lab02/
 │   ├── lab03/
 │   └── lab04/
-├── scripts/                     # Standalone helper and CLI inference scripts
-│   └── predict_passenger.py     # Terminal inference client
 ├── requirements.txt             # Course dependencies pinned to reproduction versions
 └── README.md                    # Academic dossier and laboratory documentation
 ```
