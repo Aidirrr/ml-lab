@@ -25,6 +25,7 @@
 [![Course](https://img.shields.io/badge/Course-TEB3123_Machine_Learning-10b981?style=for-the-badge&labelColor=064e3b)](https://github.com/Aidirrr/ml-lab)
 [![Institution](https://img.shields.io/badge/UTP-Computer_Science-f59e0b?style=for-the-badge&labelColor=78350f)](https://www.utp.edu.my)
 [![Progress](https://img.shields.io/badge/Milestones-4_of_8_Done_·_Lab_5_Next-047857?style=for-the-badge&labelColor=064e3b)](#-curriculum-roadmap--milestone-progress)
+[![Lab 4 PCA](https://img.shields.io/badge/PCA_Digits-0.947_Test_Acc-10b981?style=for-the-badge&labelColor=064e3b)](#4-laboratory-04-unsupervised-structure-density-frontiers--pca-compression)
 [![Stack](https://img.shields.io/badge/Stack-Python_3.12_·_scikit--learn_1.9-059669?style=for-the-badge&labelColor=064e3b)](requirements.txt)
 
 </div>
@@ -184,6 +185,10 @@ For direct audit by **GA Reeyan Afzal** and the course instructor, this index ma
 
 ### 4. Laboratory 04: Unsupervised Structure, Density Frontiers & PCA Compression
 
+<p align="center">
+  <img src="results/lab04/digits_sample.png" alt="First ten handwritten training digits (8x8 grayscale)" width="820">
+</p>
+
 <table>
   <tr>
     <th width="50%" align="center">K-Means: Elbow &amp; Silhouette Geometry</th>
@@ -216,6 +221,23 @@ For direct audit by **GA Reeyan Afzal** and the course instructor, this index ma
 </p>
 
 > 💡 **Try It Yourself Insight (DBSCAN $eps=0.50$):** Tightening the neighborhood radius to $eps=0.50$ isolates 5 high-density cores with 66 noise points ($33.0\%$ unclustered), achieving a silhouette score of <b>0.528</b>. K-Means serves mass retail where $100\%$ customer allocation is required; DBSCAN serves surgical VIP marketing by discarding atypical outliers.
+
+#### Mall Customer Behavioral Profiles ($k=5$ K-Means Centroids):
+| Cluster ID | Mean Age | Mean Annual Income | Mean Spending Score | Customers | Marketing Persona Interpretation |
+|:---:|:---:|:---:|:---:|:---:|:---|
+| **0** | 55.6 yrs | $54.4k | 48.9 / 100 | 47 (23.5%) | **Mature Mainstream:** Middle-aged stable shoppers with moderate expenditure |
+| **1** | 32.9 yrs | $86.1k | 81.5 / 100 | 40 (20.0%) | **Prime Affluent / VIP:** Young high-earners with maximum disposable spending |
+| **2** | 25.2 yrs | $41.1k | 62.2 / 100 | 54 (27.0%) | **Aspirational Youth:** Young moderate-income shoppers prioritizing trend consumption |
+| **3** | 46.2 yrs | $26.8k | 18.4 / 100 | 20 (10.0%) | **Conservative Savers:** Low-income budget shoppers with minimal discretionary purchases |
+| **4** | 39.9 yrs | $86.1k | 19.4 / 100 | 39 (19.5%) | **Careful High-Earners:** Affluent shoppers who budget strictly; prime targets for loyalty incentives |
+
+#### PCA Variance Budgets & Downstream Classifier Performance:
+| Variance Budget | Retained Components | Dimensional Compression | Validation Accuracy | Official Test Accuracy |
+|:---:|:---:|:---:|:---:|:---:|
+| **Baseline (Full Pixels)** | 64 | 0.0% (raw inputs) | 0.9540 | **0.9482** |
+| **90% Budget** | 21 | 67.2% reduction | 0.9487 | — |
+| **95% Budget (Locked)** | **29** | **54.7% reduction** | **0.9529** | **0.9471** |
+| **99% Budget** | 41 | 35.9% reduction | 0.9561 | — |
 
 ---
 
@@ -253,13 +275,25 @@ models/
 └── digits_pca_logistic.joblib    # 29-component PCA + Logistic Regression pipeline (0.947 Acc)
 ```
 
-### Running Interactive Passenger Prediction:
+### 1. Interactive Titanic Survival Prediction:
+Execute via Jupyter Notebook [`predict_passenger.ipynb`](all_experiments/predict_passenger.ipynb) or from terminal:
 ```bash
 python scripts/predict_passenger.py --pclass 2 --sex female --age 30 --fare 20
 ```
 ```text
 survival probability: 0.822  ->  survived
 (model: logistic regression pipeline, test ROC AUC 0.837)
+```
+
+### 2. Handwritten Digit Classification via PCA Pipeline:
+```python
+import joblib
+
+# Load fitted PCA (29 components) + Logistic Regression pipeline
+model = joblib.load("models/digits_pca_logistic.joblib")
+
+# Predict on new 64-pixel images (values scaled 0-1)
+# predictions = model.predict(new_images_64)
 ```
 
 ---
