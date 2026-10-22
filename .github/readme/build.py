@@ -291,16 +291,16 @@ def build_card(theme_name):
     <!-- Milestone Progress -->
     <text x="400" y="210">
       <tspan fill="url(#goldRamp_{theme_name})" font-weight="bold">MILESTONES</tspan>
-      <tspan x="515" fill="{t['fg']}">3 of 8 Labs Completed</tspan>
+      <tspan x="515" fill="{t['fg']}">4 of 8 Labs Completed</tspan>
     </text>
 
-    <!-- Milestone Cells: 1, 2, 3 Done (Green), 4 Next (Gold), 5-8 Pending -->
+    <!-- Milestone Cells: 1, 2, 3, 4 Done (Green), 5 Next (Gold), 6-8 Pending -->
     <g transform="translate(685, 199)">
       <rect x="0" y="0" width="13" height="12" rx="2.5" fill="{t['cell_done']}"/>
       <rect x="16" y="0" width="13" height="12" rx="2.5" fill="{t['cell_done']}"/>
       <rect x="32" y="0" width="13" height="12" rx="2.5" fill="{t['cell_done']}"/>
-      <rect x="48" y="0" width="13" height="12" rx="2.5" fill="{t['cell_next']}"/>
-      <rect x="64" y="0" width="13" height="12" rx="2.5" fill="{t['cell_pending']}"/>
+      <rect x="48" y="0" width="13" height="12" rx="2.5" fill="{t['cell_done']}"/>
+      <rect x="64" y="0" width="13" height="12" rx="2.5" fill="{t['cell_next']}"/>
       <rect x="80" y="0" width="13" height="12" rx="2.5" fill="{t['cell_pending']}"/>
       <rect x="96" y="0" width="13" height="12" rx="2.5" fill="{t['cell_pending']}"/>
       <rect x="112" y="0" width="13" height="12" rx="2.5" fill="{t['cell_pending']}"/>
@@ -309,16 +309,16 @@ def build_card(theme_name):
     <!-- Current & Next Focus -->
     <text x="400" y="234">
       <tspan fill="url(#goldRamp_{theme_name})" font-weight="bold">NEXT LAB</tspan>
-      <tspan x="515" fill="{t['gold']}" font-weight="bold">Lab 04: Clustering &amp; PCA (Unsupervised I)</tspan>
+      <tspan x="515" fill="{t['gold']}" font-weight="bold">Lab 05: Anomaly Detection &amp; Limited Labels</tspan>
     </text>
 
     <!-- Empirical Benchmark Records -->
     <text x="400" y="260">
       <tspan fill="url(#goldRamp_{theme_name})" font-weight="bold">BENCHMARKS</tspan>
-      <tspan x="515" fill="{t['fg']}">Titanic AUC: <tspan fill="{t['emerald']}">0.837</tspan> · SVM AUC: <tspan fill="{t['emerald']}">0.997</tspan></tspan>
+      <tspan x="515" fill="{t['fg']}">Titanic: <tspan fill="{t['emerald']}">0.837</tspan> · SVM: <tspan fill="{t['emerald']}">0.997</tspan> · PCA: <tspan fill="{t['emerald']}">0.947</tspan></tspan>
     </text>
     <text x="515" y="278" font-size="11" fill="{t['muted']}">
-      Bike Demand MAE: 56.5/hr · Student Grade MAE: 2.08
+      Mall Silhouette: 0.528 · Digit Compression: 64 → 29 components
     </text>
   </g>
 

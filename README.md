@@ -24,7 +24,7 @@
 [![Student ID](https://img.shields.io/badge/Student_ID-22007399-d97706?style=for-the-badge&labelColor=78350f)](https://github.com/Aidirrr/ml-lab)
 [![Course](https://img.shields.io/badge/Course-TEB3123_Machine_Learning-10b981?style=for-the-badge&labelColor=064e3b)](https://github.com/Aidirrr/ml-lab)
 [![Institution](https://img.shields.io/badge/UTP-Computer_Science-f59e0b?style=for-the-badge&labelColor=78350f)](https://www.utp.edu.my)
-[![Progress](https://img.shields.io/badge/Milestones-3_of_8_Done_·_Lab_4_Next-047857?style=for-the-badge&labelColor=064e3b)](#-curriculum-roadmap--milestone-progress)
+[![Progress](https://img.shields.io/badge/Milestones-4_of_8_Done_·_Lab_5_Next-047857?style=for-the-badge&labelColor=064e3b)](#-curriculum-roadmap--milestone-progress)
 [![Stack](https://img.shields.io/badge/Stack-Python_3.12_·_scikit--learn_1.9-059669?style=for-the-badge&labelColor=064e3b)](requirements.txt)
 
 </div>
@@ -61,8 +61,8 @@ In the pursuit of beneficial knowledge (*'Ilm Nafi'*), this laboratory is ground
 | **01** | [`lab01_features_worked`](all_experiments/lab01_features_worked.ipynb) | Feature engineering, distance geometry, regularized lasso selection | Titanic, Breast Cancer Wisconsin, Student Performance | ![Done](https://img.shields.io/badge/Status-Completed-059669?style=flat-square) |
 | **02** | [`lab02_supervised_workflow_worked`](all_experiments/lab02_supervised_workflow_worked.ipynb) | Leak-free workflow, temporal validation, cost-sensitive threshold shifting | Medical Insurance, Bike Demand, Titanic, Breast Cancer | ![Done](https://img.shields.io/badge/Status-Completed-059669?style=flat-square) |
 | **03** | [`lab03_supervised_models_worked`](all_experiments/lab03_supervised_models_worked.ipynb) | Model family taxonomy, non-linear boundaries, tree pruning, SVM kernels | Breast Cancer, Titanic, Ames Housing, Red Wine | ![Done](https://img.shields.io/badge/Status-Completed-059669?style=flat-square) |
-| **04** | `lab04_clustering_pca_worked` | Unsupervised structure: Elbow & silhouette K-Means, DBSCAN density, PCA reconstruction & downstream accuracy | Mall Customer Segmentation, Handwritten Digits (8x8) | ![Next](https://img.shields.io/badge/Status-Active_Next-f59e0b?style=flat-square) |
-| **05** | `lab05_anomaly_limited_labels_worked` | Anomaly detection, isolation methods & semi-supervised learning | Credit Card Fraud, Breast Cancer | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
+| **04** | [`lab04_clustering_pca_worked`](all_experiments/lab04_clustering_pca_worked.ipynb) | Unsupervised structure: Elbow & silhouette K-Means, DBSCAN density, PCA reconstruction & downstream accuracy | Mall Customer Segmentation, Handwritten Digits (8x8) | ![Done](https://img.shields.io/badge/Status-Completed-059669?style=flat-square) |
+| **05** | `lab05_anomaly_limited_labels_worked` | Anomaly detection, isolation methods & semi-supervised learning | Credit Card Fraud, Breast Cancer | ![Next](https://img.shields.io/badge/Status-Active_Next-f59e0b?style=flat-square) |
 | **06** | `lab06_reinforcement_worked` | Markov decision processes & reinforcement learning | Policy / Value Iteration | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
 | **07** | `lab07_deep_learning_cnn_worked` | Deep representation learning with Convolutional Neural Networks | Handwritten Digits | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
 | **08** | `lab08_deep_learning_lstm_worked` | Sequence modeling and temporal forecasting with LSTMs | Hourly Bike Sharing | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
@@ -90,6 +90,10 @@ For direct audit by **GA Reeyan Afzal** and the course instructor, this index ma
 | **03** | *Model Persistence:* `breast_cancer_svm.joblib` | End of Part D | RBF SVM tuned via 5-fold CV (0.995 AUC) reaching 0.997 on test holdout; reloaded and verified. |
 | **03** | *Try it yourself:* Unpruned Tree & Linear SVM Sweep | *Try it yourself* Section | Unpruned tree hits 0.978 train / 0.722 val; Linear SVM ties RBF at 0.997 test ROC AUC. |
 | **03** | *Verification Checklist & Questions* | Final Two Sections | Complete checklist validation and answers to all 3 theoretical questions. |
+| **04** | **Parts A to C** | [`lab04_clustering_pca_worked.ipynb`](all_experiments/lab04_clustering_pca_worked.ipynb) | Elbow & silhouette sweep ($k=2..8$), DBSCAN density comparison ($eps=0.75$), PCA 95% variance budget. |
+| **04** | *Try it yourself:* DBSCAN $eps=0.5$ vs K-Means | *Try it yourself* Section | At $eps=0.50$, finds 5 clusters & 66 noise points (0.528 silhouette); marketing trade-offs justified. |
+| **04** | *Model Persistence:* `digits_pca_logistic.joblib` | End of Part C | Fitted PCA pipeline (29 components) achieving 0.9471 test accuracy; reloaded and verified. |
+| **04** | *Verification Checklist & Questions* | Final Two Sections | Verified all 5 checklist items; complete theoretical answers to Q1, Q2, and Q3 from Ch. 15–17. |
 
 ---
 
@@ -178,6 +182,43 @@ For direct audit by **GA Reeyan Afzal** and the course instructor, this index ma
 
 ---
 
+### 4. Laboratory 04: Unsupervised Structure, Density Frontiers & PCA Compression
+
+<table>
+  <tr>
+    <th width="50%" align="center">K-Means: Elbow &amp; Silhouette Geometry</th>
+    <th width="50%" align="center">K-Means ($k=5$) vs DBSCAN ($eps=0.75$)</th>
+  </tr>
+  <tr>
+    <td><img src="results/lab04/mall_elbow_silhouette.png" alt="Mall customer clustering elbow and silhouette curves"></td>
+    <td><img src="results/lab04/mall_kmeans_vs_dbscan.png" alt="K-Means vs DBSCAN scatter comparison"></td>
+  </tr>
+  <tr>
+    <td><b>Key Finding:</b> Inertia bends distinctly between $k=4$ and $k=6$, while silhouette scores peak at $k=6$ (0.428) closely followed by $k=5$ (0.417). Retail persona stability favors $k=5$ for intuitive marketing tiers.</td>
+    <td><b>Key Finding:</b> DBSCAN at $eps=0.75$ connects density bridges across standardized 3D space, merging customers into 1 giant cloud with 14 noise points. Grouping assumptions contrast sharply with Voronoi partitioning.</td>
+  </tr>
+  <tr>
+    <th align="center">Downstream PCA Digits Reconstruction ($8 \times 8$)</th>
+    <th align="center">Cumulative Explained Variance Budget</th>
+  </tr>
+  <tr>
+    <td><img src="results/lab04/digits_reconstruction.png" alt="Original digits vs reconstructed from 29 principal components"></td>
+    <td><img src="results/lab04/digits_cumulative_variance.png" alt="Cumulative explained variance curve for 64 principal components"></td>
+  </tr>
+  <tr>
+    <td><b>Key Finding:</b> Compressing digits from 64 pixels down to <b>29 components</b> ($54.7\%$ compression) introduces mild high-frequency smoothing while preserving topological stroke structure.</td>
+    <td><b>Key Finding:</b> The first 29 directions capture <b>95.37%</b> of total variance. Evaluated on the official holdout test file, downstream classification accuracy reaches <b>0.9471</b> (nearly identical to all 64 pixels at <b>0.9482</b>).</td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="results/lab04/mall_dbscan_try_05.png" alt="Try it yourself: DBSCAN eps=0.5 vs K-Means k=5" width="820">
+</p>
+
+> 💡 **Try It Yourself Insight (DBSCAN $eps=0.50$):** Tightening the neighborhood radius to $eps=0.50$ isolates 5 high-density cores with 66 noise points ($33.0\%$ unclustered), achieving a silhouette score of <b>0.528</b>. K-Means serves mass retail where $100\%$ customer allocation is required; DBSCAN serves surgical VIP marketing by discarding atypical outliers.
+
+---
+
 ## ❖ Empirical Benchmark Ledger | جدول المقاييس المخبرية
 
 All performance metrics below are recorded from reproducible executions with `random_state=42`:
@@ -193,6 +234,9 @@ All performance metrics below are recorded from reproducible executions with `ra
 | **Lab 03** | Breast Cancer | K-Nearest Neighbours ($k=11$) | Acc: **0.958** | AUC: **0.986** | Non-parametric local voting outscores Gaussian Naive Bayes |
 | **Lab 03** | Ames Housing | Gradient Boosting Regressor | CV log-RMSE: **0.127** | — | Residual boosting outperforms standard bagging ensemble |
 | **Lab 03** | Breast Cancer | Tuned RBF Support Vector Machine | CV AUC: **0.995** | Test AUC: **0.997** | Hyperplane margin maximization achieves near-flawless separation |
+| **Lab 04** | Mall Customers | K-Means Clustering ($k=5$) | Silhouette: **0.417** | Inertia: **168.2** | 100% customer allocation into 5 actionable managerial personas |
+| **Lab 04** | Mall Customers | DBSCAN Density Clustering ($eps=0.50$) | Clustered Sil: **0.528** | Noise: **66 pts** | High-density core isolation; filters 33% atypical outlier profiles |
+| **Lab 04** | Handwritten Digits | PCA (95% Var) + Logistic Regression | Val Acc: **0.9529** | Test Acc: **0.9471** | 29 components ($55\%$ reduction) ties full 64-pixel baseline (0.9482) |
 
 ---
 
@@ -205,7 +249,8 @@ models/
 ├── titanic_survival.joblib       # Preprocessing + Logistic Regression pipeline
 ├── titanic_survival_card.json    # Pipeline metadata, input schema & validation scores
 ├── insurance_charges.joblib      # Fitted OLS regression pipeline
-└── breast_cancer_svm.joblib      # Tuned RBF Support Vector Classifier (0.997 ROC AUC)
+├── breast_cancer_svm.joblib      # Tuned RBF Support Vector Classifier (0.997 ROC AUC)
+└── digits_pca_logistic.joblib    # 29-component PCA + Logistic Regression pipeline (0.947 Acc)
 ```
 
 ### Running Interactive Passenger Prediction:
@@ -267,12 +312,14 @@ ml-lab/
 │   ├── lab01_features_worked.ipynb
 │   ├── lab02_supervised_workflow_worked.ipynb
 │   ├── lab03_supervised_models_worked.ipynb
+│   ├── lab04_clustering_pca_worked.ipynb
 │   └── predict_passenger.py     # Standalone CLI inference client
 ├── models/                      # Serialized pipelines and model cards
 ├── results/                     # High-resolution visual artifacts and metric summaries
 │   ├── lab01/
 │   ├── lab02/
-│   └── lab03/
+│   ├── lab03/
+│   └── lab04/
 ├── requirements.txt             # Course dependencies pinned to reproduction versions
 └── README.md                    # Academic dossier and laboratory documentation
 ```

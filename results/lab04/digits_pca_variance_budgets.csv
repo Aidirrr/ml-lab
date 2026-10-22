@@ -1,0 +1,4 @@
+variance_budget,n_components,validation_accuracy
+0.9,21,0.9487
+0.95,29,0.9529
+0.99,41,0.9561
