@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 360" width="850" height="360" role="img" aria-label="ML-LAB Academic Research Dossier - Muhammad Khaidhir bin Mohd Razin (ID: 22007399), Universiti Teknologi PETRONAS, TEB3123 Machine Learning.">
+  <defs>
+    
+    <linearGradient id="bgGrad_dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#03150f"/>
+      <stop offset="50%" stop-color="#072b1f"/>
+      <stop offset="100%" stop-color="#02110c"/>
+    </linearGradient>
+    <linearGradient id="goldRamp_dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="emeraldRamp_dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <filter id="softGlow_dark" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+  </defs>
+
+  <!-- Outer Card Frame -->
+  <rect x="2" y="2" width="846" height="356" rx="14" fill="url(#bgGrad_dark)" stroke="#b45309" stroke-width="1.6" stroke-opacity="0.85"/>
+  <rect x="8" y="8" width="834" height="344" rx="10" fill="none" stroke="url(#goldRamp_dark)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.45"/>
+
+  <!-- Left Side: Islamic Sacred Geometry & Pattern -->
+  <g id="islamic_geometry">
+    <circle cx="185" cy="180" r="135.7" fill="none" stroke="url(#goldRamp_dark)" stroke-width="1" stroke-dasharray="4,6" opacity="0.45"/>
+    <circle cx="320.7" cy="180.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="310.4" cy="231.9" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="281.0" cy="276.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="236.9" cy="305.4" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="185.0" cy="315.7" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="133.1" cy="305.4" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="89.0" cy="276.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="59.6" cy="231.9" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="49.3" cy="180.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="59.6" cy="128.1" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="89.0" cy="84.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="133.1" cy="54.6" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="185.0" cy="44.3" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="236.9" cy="54.6" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="281.0" cy="84.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="310.4" cy="128.1" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <polygon points="295.4,180.0 185.0,290.4 74.6,180.0 185.0,69.6" fill="none" stroke="url(#emeraldRamp_dark)" stroke-width="1.8" opacity="0.8"/>
+    <polygon points="263.1,258.1 106.9,258.1 106.9,101.9 263.1,101.9" fill="none" stroke="url(#emeraldRamp_dark)" stroke-width="1.8" opacity="0.8"/>
+    <polygon points="185.0,83.4 207.9,124.8 253.3,111.7 240.2,157.1 281.6,180.0 240.2,202.9 253.3,248.3 207.9,235.2 185.0,276.6 162.1,235.2 116.7,248.3 129.8,202.9 88.4,180.0 129.8,157.1 116.7,111.7 162.1,124.8" fill="#06241a" stroke="url(#goldRamp_dark)" stroke-width="2" opacity="0.95"/>
+    <polygon points="195.3,128.1 202.9,153.2 229.0,150.6 216.6,173.7 236.9,190.3 211.8,197.9 214.4,224.0 191.3,211.6 174.7,231.9 167.1,206.8 141.0,209.4 153.4,186.3 133.1,169.7 158.2,162.1 155.6,136.0 178.7,148.4" fill="none" stroke="url(#goldRamp_dark)" stroke-width="1.4" opacity="0.9"/>
+    <circle cx="185" cy="180" r="19.6" fill="url(#emeraldRamp_dark)" stroke="url(#goldRamp_dark)" stroke-width="1.5"/>
+    <circle cx="185" cy="180" r="6.9" fill="#fbbf24"/>
+    <text x="185" y="325" font-family="'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Noto Naskh Arabic', serif" font-size="16" font-weight="bold" fill="url(#goldRamp_dark)" text-anchor="middle">
+      إِحْسَانٌ وَعِلْمٌ نَافِعٌ
+    </text>
+    <text x="185" y="342" font-family="ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace" font-size="9" fill="#94a3b8" text-anchor="middle" letter-spacing="1.5">
+      RIGOR · REPRODUCIBILITY · INTEGRITY
+    </text>
+  </g>
+
+  <!-- Vertical Divider with Gold Accent -->
+  <line x1="370" y1="28" x2="370" y2="332" stroke="url(#goldRamp_dark)" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+  <polygon points="370,175 375,180 370,185 365,180" fill="url(#goldRamp_dark)"/>
+
+  <!-- Right Side: Academic Dossier & Experimental Status -->
+  <!-- Header & Quranic Invocation -->
+  <text x="400" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="800" fill="url(#emeraldRamp_dark)" letter-spacing="2">
+    ✦ RESEARCH &amp; LABORATORY DOSSIER
+  </text>
+  <text x="400" y="70" font-family="'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Noto Naskh Arabic', serif" font-size="17" font-weight="bold" fill="url(#goldRamp_dark)">
+    "رَّبِّ زِدْنِي عِلْمًا"
+  </text>
+  <text x="510" y="69" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-style="italic" fill="#94a3b8">
+    — "My Lord, increase me in knowledge." (20:114)
+  </text>
+
+  <line x1="400" y1="84" x2="820" y2="84" stroke="#94a3b8" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Metadata Table Rows -->
+  <g font-family="ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace" font-size="12">
+    <!-- Candidate -->
+    <text x="400" y="110">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">CANDIDATE</tspan>
+      <tspan x="515" fill="#e2e8f0" font-weight="600">Muhammad Khaidhir bin Mohd Razin</tspan>
+    </text>
+
+    <!-- Student ID -->
+    <text x="400" y="134">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">STUDENT ID</tspan>
+      <tspan x="515" fill="#34d399" font-weight="bold" letter-spacing="1">22007399</tspan>
+      <tspan x="620" fill="#94a3b8" font-size="11">(UTP Computer Science)</tspan>
+    </text>
+
+    <!-- Course & GA -->
+    <text x="400" y="158">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">COURSE</tspan>
+      <tspan x="515" fill="#e2e8f0">TEB3123 Machine Learning</tspan>
+    </text>
+    <text x="400" y="182">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">EVALUATOR</tspan>
+      <tspan x="515" fill="#e2e8f0">GA Reeyan Afzal</tspan>
+      <tspan x="670" fill="#94a3b8" font-size="10.5">· Lab Feedback Addressed</tspan>
+    </text>
+
+    <!-- Milestone Progress -->
+    <text x="400" y="210">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">MILESTONES</tspan>
+      <tspan x="515" fill="#e2e8f0">4 of 8 Labs Completed</tspan>
+    </text>
+
+    <!-- Milestone Cells: 1, 2, 3, 4 Done (Green), 5 Next (Gold), 6-8 Pending -->
+    <g transform="translate(685, 199)">
+      <rect x="0" y="0" width="13" height="12" rx="2.5" fill="#10b981"/>
+      <rect x="16" y="0" width="13" height="12" rx="2.5" fill="#10b981"/>
+      <rect x="32" y="0" width="13" height="12" rx="2.5" fill="#10b981"/>
+      <rect x="48" y="0" width="13" height="12" rx="2.5" fill="#10b981"/>
+      <rect x="64" y="0" width="13" height="12" rx="2.5" fill="#f59e0b"/>
+      <rect x="80" y="0" width="13" height="12" rx="2.5" fill="#1e3a2f"/>
+      <rect x="96" y="0" width="13" height="12" rx="2.5" fill="#1e3a2f"/>
+      <rect x="112" y="0" width="13" height="12" rx="2.5" fill="#1e3a2f"/>
+    </g>
+
+    <!-- Current & Next Focus -->
+    <text x="400" y="234">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">NEXT LAB</tspan>
+      <tspan x="515" fill="#fbbf24" font-weight="bold">Lab 05: Anomaly Detection &amp; Limited Labels</tspan>
+    </text>
+
+    <!-- Empirical Benchmark Records -->
+    <text x="400" y="260">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">BENCHMARKS</tspan>
+      <tspan x="515" fill="#e2e8f0">Titanic: <tspan fill="#34d399">0.837</tspan> · SVM: <tspan fill="#34d399">0.997</tspan> · PCA: <tspan fill="#34d399">0.947</tspan></tspan>
+    </text>
+    <text x="515" y="278" font-size="11" fill="#94a3b8">
+      Mall Silhouette: 0.528 · Digit Compression: 64 → 29 components
+    </text>
+  </g>
+
+  <!-- Bottom Verification Seal -->
+  <line x1="400" y1="298" x2="820" y2="298" stroke="#94a3b8" stroke-opacity="0.3" stroke-width="1"/>
+  <g font-family="ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace" font-size="11">
+    <rect x="400" y="309" width="112" height="20" rx="4" fill="#06241a" stroke="url(#emeraldRamp_dark)" stroke-width="1"/>
+    <text x="456" y="323" fill="#34d399" font-weight="bold" text-anchor="middle">✓ VERIFIED</text>
+    <text x="522" y="323" fill="#94a3b8">Random Seed 42 Fixed · Zero Leakage Pipelines</text>
+  </g>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 154" width="850" height="154" role="img" aria-label="ML-LAB Islamic Academic Banner">
+  <defs>
+    
+    <linearGradient id="bgGrad_light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf8f2"/>
+      <stop offset="50%" stop-color="#f0f7f3"/>
+      <stop offset="100%" stop-color="#f8f5ee"/>
+    </linearGradient>
+    <linearGradient id="goldRamp_light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b45309"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+    <linearGradient id="emeraldRamp_light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46"/>
+      <stop offset="50%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <filter id="softGlow_light" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+  </defs>
+
+  <!-- Outer Background Container -->
+  <rect x="2" y="2" width="846" height="150" rx="14" fill="url(#bgGrad_light)" stroke="#d97706" stroke-width="1.6" stroke-opacity="0.85"/>
+
+  <!-- Inner Decorative Border -->
+  <rect x="8" y="8" width="834" height="138" rx="10" fill="none" stroke="url(#goldRamp_light)" stroke-width="0.8" stroke-dasharray="8,5" opacity="0.6"/>
+
+  <!-- Islamic Corner Stars (Rub el Hizb 8-point motif) -->
+  <g fill="url(#goldRamp_light)" opacity="0.85">
+    <!-- Top-Left -->
+    <path d="M 22 17 L 24 20 L 27 22 L 24 24 L 22 27 L 20 24 L 17 22 L 20 20 Z"/>
+    <!-- Top-Right -->
+    <path d="M 828 17 L 830 20 L 833 22 L 830 24 L 828 27 L 826 24 L 823 22 L 826 20 Z"/>
+    <!-- Bottom-Left -->
+    <path d="M 22 127 L 24 130 L 27 132 L 24 134 L 22 137 L 20 134 L 17 132 L 20 130 Z"/>
+    <!-- Bottom-Right -->
+    <path d="M 828 127 L 830 130 L 833 132 L 830 134 L 828 137 L 826 134 L 823 132 L 826 130 Z"/>
+  </g>
+
+  <!-- Calligraphy: Bismillah Ar-Rahman Ar-Rahim -->
+  <text x="425" y="36" font-family="'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Noto Naskh Arabic', serif" font-size="22" font-weight="bold" fill="url(#goldRamp_light)" text-anchor="middle" letter-spacing="1">
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+  </text>
+
+  <!-- Title: ML-LAB with Rub el Hizb and Arabic Translation -->
+  <text x="425" y="76" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="23" font-weight="800" fill="url(#emeraldRamp_light)" text-anchor="middle" letter-spacing="3.5">
+    ML · LAB  <tspan fill="url(#goldRamp_light)" font-family="'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Noto Naskh Arabic', serif" font-size="20">۞</tspan>  مُخْتَبَرُ تَعَلُّمِ الآلَة
+  </text>
+
+  <!-- Subtitle: University and Course Code -->
+  <text x="425" y="104" font-family="ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#64748b" text-anchor="middle" letter-spacing="2">
+    TEB3123 MACHINE LEARNING · UNIVERSITI TEKNOLOGI PETRONAS
+  </text>
+
+  <!-- Student Line with Student ID prominently featured -->
+  <g text-anchor="middle" font-family="ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace">
+    <text x="425" y="128" font-size="11.5" font-weight="600" fill="url(#goldRamp_light)" letter-spacing="1.2">
+      CANDIDATE: MUHAMMAD KHAIDHIR BIN MOHD RAZIN  ·  STUDENT ID: 22007399
+    </text>
+  </g>
+</svg>

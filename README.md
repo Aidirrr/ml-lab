@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset=".github/readme/banner-dark-v2.svg">
     <source media="(prefers-color-scheme: light)" srcset=".github/readme/banner-light-v2.svg">
-    <img src=".github/readme/banner-dark-v2.svg" alt="ML-LAB Glowing ANSI Shadow Banner" width="850">
+    <img src=".github/readme/banner-dark-v2.svg" alt="ML-LAB Islamic Academic Banner" width="850">
   </picture>
 </div>
 
@@ -10,7 +10,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset=".github/readme/card-dark-v2.svg">
     <source media="(prefers-color-scheme: light)" srcset=".github/readme/card-light-v2.svg">
-    <img src=".github/readme/card-dark-v2.svg" alt="ML-LAB Decision Boundary Card" width="850">
+    <img src=".github/readme/card-dark-v2.svg" alt="ML-LAB Academic Research Dossier Card" width="850">
   </picture>
 </div>
 
