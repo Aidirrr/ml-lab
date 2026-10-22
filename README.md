@@ -1,16 +1,16 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/readme/banner-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset=".github/readme/banner-light.svg">
-    <img src=".github/readme/banner-dark.svg" alt="ML-LAB Islamic Academic Banner" width="850">
+    <source media="(prefers-color-scheme: dark)" srcset=".github/readme/banner-dark-v2.svg">
+    <source media="(prefers-color-scheme: light)" srcset=".github/readme/banner-light-v2.svg">
+    <img src=".github/readme/banner-dark-v2.svg" alt="ML-LAB Glowing ANSI Shadow Banner" width="850">
   </picture>
 </div>
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/readme/card-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset=".github/readme/card-light.svg">
-    <img src=".github/readme/card-dark.svg" alt="ML-LAB Academic Dossier - Muhammad Khaidhir bin Mohd Razin (22007399)" width="850">
+    <source media="(prefers-color-scheme: dark)" srcset=".github/readme/card-dark-v2.svg">
+    <source media="(prefers-color-scheme: light)" srcset=".github/readme/card-light-v2.svg">
+    <img src=".github/readme/card-dark-v2.svg" alt="ML-LAB Decision Boundary Card" width="850">
   </picture>
 </div>
 

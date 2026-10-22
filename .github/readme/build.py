@@ -209,10 +209,13 @@ def main():
     lines = [l.ljust(w) for l in lines]
     art = (ROOT / "art.txt").read_text(encoding="utf-8").rstrip("\n").split("\n")
     for theme in THEMES:
-        for name, svg in ((f"banner-{theme}.svg", banner(theme, lines)),
-                          (f"card-{theme}.svg", card(theme, art))):
-            (ROOT / name).write_text(svg, encoding="utf-8", newline="\n")
-            print(f"wrote {name}")
+        b_svg = banner(theme, lines)
+        c_svg = card(theme, art)
+        for base, content in [("banner", b_svg), ("card", c_svg)]:
+            for suffix in ["", "-v2"]:
+                fname = f"{base}-{theme}{suffix}.svg"
+                (ROOT / fname).write_text(content, encoding="utf-8", newline="\n")
+                print(f"wrote {fname}")
     print(f"banner: {w} cols, art: {len(art[0])} x {len(art)}")
 
 
