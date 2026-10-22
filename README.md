@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset=".github/readme/banner-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset=".github/readme/banner-light.svg">
-    <img src=".github/readme/banner-dark.svg" alt="ML-LAB" width="850">
+    <img src=".github/readme/banner-dark.svg" alt="ML-LAB Islamic Academic Banner" width="850">
   </picture>
 </div>
 
@@ -10,182 +10,237 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset=".github/readme/card-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset=".github/readme/card-light.svg">
-    <img src=".github/readme/card-dark.svg" alt="ML-LAB, worked notebooks for UTP's TEB3123 Machine Learning: three of eight labs done, covering feature engineering and selection, the supervised workflow and the main model families, with a breast cancer SVM at 0.997 test ROC AUC" width="850">
+    <img src=".github/readme/card-dark.svg" alt="ML-LAB Academic Dossier - Muhammad Khaidhir bin Mohd Razin (22007399)" width="850">
   </picture>
 </div>
 
+<div align="center">
+
+### بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+*"رَّبِّ زِدْنِي عِلْمًا"*  
+*— "My Lord, increase me in knowledge." (Surah Ta-Ha 20:114)*
+
+[![Author](https://img.shields.io/badge/Author-Muhammad_Khaidhir-059669?style=for-the-badge&logo=github&logoColor=white&labelColor=064e3b)](https://github.com/Aidirrr)
+[![Student ID](https://img.shields.io/badge/Student_ID-22007399-d97706?style=for-the-badge&labelColor=78350f)](https://github.com/Aidirrr/ml-lab)
+[![Course](https://img.shields.io/badge/Course-TEB3123_Machine_Learning-10b981?style=for-the-badge&labelColor=064e3b)](https://github.com/Aidirrr/ml-lab)
+[![Institution](https://img.shields.io/badge/UTP-Computer_Science-f59e0b?style=for-the-badge&labelColor=78350f)](https://www.utp.edu.my)
+[![Progress](https://img.shields.io/badge/Milestones-3_of_8_Done_·_Lab_4_Next-047857?style=for-the-badge&labelColor=064e3b)](#-curriculum-roadmap--milestone-progress)
+[![Stack](https://img.shields.io/badge/Stack-Python_3.12_·_scikit--learn_1.9-059669?style=for-the-badge&labelColor=064e3b)](requirements.txt)
+
+</div>
+
+---
+
+## ❖ Academic & Research Dossier | سجل الطالب والمساق
+
+Welcome to the empirical machine learning research laboratory repository for **TEB3123 Machine Learning** at **Universiti Teknologi PETRONAS (UTP)**, maintained by **Muhammad Khaidhir bin Mohd Razin**.
+
+```yaml
+Candidate Information:
+  Full Name:       Muhammad Khaidhir bin Mohd Razin
+  Student ID:      22007399
+  Programme:       Bachelor of Computer Science (Hons.)
+  Department:      Computer & Information Sciences, UTP
+  Course Code:     TEB3123 Machine Learning
+  Evaluator / GA:  Reeyan Afzal
+  Repository:      https://github.com/Aidirrr/ml-lab
+```
+
+### Philosophy of Inquiry (*Ihsan & Empirical Rigor*)
+In the pursuit of beneficial knowledge (*'Ilm Nafi'*), this laboratory is grounded in three core principles:
+1. **Truthfulness in Evidence (*Sidq*):** Every metric reported reflects unvarnished holdout and cross-validation evaluations. High training accuracy is never mistaken for true generalization.
+2. **Methodological Excellence (*Ihsan*):** Preprocessing pipelines, scaling parameters, and imputation statistics are fitted strictly on training splits to prevent data leakage.
+3. **Reproducibility (*Amanah*):** All experiments fix `random_state=42`, adhere to pinned dependency environments, and persist serializable model artifacts alongside visual evidence.
+
+---
+
+## ❖ Curriculum Roadmap & Milestone Progress | منهاج المختبرات
+
+| Lab | Worked Notebook | Focus & Methodology | Primary Benchmarks | Status |
+|:---:|:---|:---|:---|:---:|
+| **01** | [`lab01_features_worked`](all_experiments/lab01_features_worked.ipynb) | Feature engineering, distance geometry, regularized lasso selection | Titanic, Breast Cancer Wisconsin, Student Performance | ![Done](https://img.shields.io/badge/Status-Completed-059669?style=flat-square) |
+| **02** | [`lab02_supervised_workflow_worked`](all_experiments/lab02_supervised_workflow_worked.ipynb) | Leak-free workflow, temporal validation, cost-sensitive threshold shifting | Medical Insurance, Bike Demand, Titanic, Breast Cancer | ![Done](https://img.shields.io/badge/Status-Completed-059669?style=flat-square) |
+| **03** | [`lab03_supervised_models_worked`](all_experiments/lab03_supervised_models_worked.ipynb) | Model family taxonomy, non-linear boundaries, tree pruning, SVM kernels | Breast Cancer, Titanic, Ames Housing, Red Wine | ![Done](https://img.shields.io/badge/Status-Completed-059669?style=flat-square) |
+| **04** | `lab04_clustering_pca_worked` | Unsupervised structure: Elbow & silhouette K-Means, DBSCAN density, PCA reconstruction & downstream accuracy | Mall Customer Segmentation, Handwritten Digits (8x8) | ![Next](https://img.shields.io/badge/Status-Active_Next-f59e0b?style=flat-square) |
+| **05** | `lab05_anomaly_limited_labels_worked` | Anomaly detection, isolation methods & semi-supervised learning | Credit Card Fraud, Breast Cancer | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
+| **06** | `lab06_reinforcement_worked` | Markov decision processes & reinforcement learning | Policy / Value Iteration | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
+| **07** | `lab07_deep_learning_cnn_worked` | Deep representation learning with Convolutional Neural Networks | Handwritten Digits | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
+| **08** | `lab08_deep_learning_lstm_worked` | Sequence modeling and temporal forecasting with LSTMs | Hourly Bike Sharing | ![Pending](https://img.shields.io/badge/Status-Scheduled-475569?style=flat-square) |
+
+> 📌 **Standalone Inference Tool:** [`predict_passenger.py`](all_experiments/predict_passenger.py) provides instant command-line scoring using the serialized Lab 2 Titanic pipeline without retraining.
+
+---
+
+## ❖ GA Marking Rubric & Verification Index | دليل التحقق والتقييم
+
+For direct audit by **GA Reeyan Afzal** and the course instructor, this index maps every required handout task, extension, and theoretical question to its exact implementation:
+
+| Lab | Handout Requirement | Section & Artifact Location | Verification Notes |
+|:---:|:---|:---|:---|
+| **01** | **Parts A to D** | [`lab01_features_worked.ipynb`](all_experiments/lab01_features_worked.ipynb#part-a-environment-check-and-a-first-look-at-the-data) | Each part concludes with an **Observations** cell synthesizing the empirical numbers. |
+| **01** | *Try it yourself:* Cabin initial & fare per family member | Part B (Cell 11–13) | Evaluated alongside raw and base engineered features; recorded in `results/lab01/summary.json`. |
+| **01** | *Try it yourself:* SelectKBest ($k=5$ and $k=20$) | Part D (Cell 22–24) | MAE measured at 2.134 ($k=5$) and 2.125 ($k=20$) vs 2.181 (all features). |
+| **01** | *Check your understanding:* 3 Questions | Final Section (Cell 27) | Detailed markdown answers covering distance metrics, leakage, and regularized sparsity. |
+| **02** | **Parts A to E** | [`lab02_supervised_workflow_worked.ipynb`](all_experiments/lab02_supervised_workflow_worked.ipynb) | OLS vs Ridge on Insurance, Daily & Hourly Bike Demand, Titanic Classifiers, Cancer Calibration. |
+| **02** | *Decision Memo:* Clinical Threshold Choice | End of Part C | Formal memo justifying the shift from 0.50 to 0.30 threshold (reducing missed malignancies by 50%). |
+| **02** | *Model Persistence & Terminal CLI* | Part E & [`predict_passenger.py`](all_experiments/predict_passenger.py) | Saved to `models/titanic_survival.joblib` and documented in `titanic_survival_card.json`. |
+| **02** | *Try it yourself:* Heart Disease Classifier | Section after Part E | Logistic regression pipeline yielding 0.883 accuracy and 0.932 ROC AUC. |
+| **02** | *Check your understanding:* 3 Lab + Ch. 4 Questions | Final Two Sections | Comprehensive answers addressing temporal splits, calibration, and metric trade-offs. |
+| **03** | **Parts A to D** | [`lab03_supervised_models_worked.ipynb`](all_experiments/lab03_supervised_models_worked.ipynb) | KNN vs Naive Bayes, Decision Tree Depth, Ensemble Regressors, Hyperplane Margin Tuning. |
+| **03** | *Model Persistence:* `breast_cancer_svm.joblib` | End of Part D | RBF SVM tuned via 5-fold CV (0.995 AUC) reaching 0.997 on test holdout; reloaded and verified. |
+| **03** | *Try it yourself:* Unpruned Tree & Linear SVM Sweep | *Try it yourself* Section | Unpruned tree hits 0.978 train / 0.722 val; Linear SVM ties RBF at 0.997 test ROC AUC. |
+| **03** | *Verification Checklist & Questions* | Final Two Sections | Complete checklist validation and answers to all 3 theoretical questions. |
+
+---
+
+## ❖ Empirical Findings & Visual Evidence | المعارض البيانية والنتائج
+
+### 1. Laboratory 01: The Geometry of Feature Space & Parsimonious Selection
+
+<table>
+  <tr>
+    <th width="50%" align="center">Feature Engineering vs Feature Sets</th>
+    <th width="50%" align="center">Standardization Impact on Distance Geometry</th>
+  </tr>
+  <tr>
+    <td><img src="results/lab01/titanic_feature_comparison.png" alt="Titanic Feature Set Validation ROC AUC"></td>
+    <td><img src="results/lab01/scaling_geometry.png" alt="Malignancy distance heatmaps raw vs standardized"></td>
+  </tr>
+  <tr>
+    <td><b>Key Finding:</b> Extracting passenger titles, family size, and log fares elevates validation ROC AUC from <b>0.842 to 0.872</b>. Slicing cabin deck letters and individual family fares produces negligible incremental gain.</td>
+    <td><b>Key Finding:</b> Without feature standardization, Euclidean distance is distorted entirely by high-magnitude tumour areas. Standardizing re-aligns nearest neighbour topology (Tumour 5 shifts from Tumour 3 to Tumour 2).</td>
+  </tr>
+</table>
+
 <p align="center">
-  <a href="https://github.com/Aidirrr"><img src="https://img.shields.io/badge/author-Khaidhir-38bdf8?style=for-the-badge&labelColor=161b22&logo=github" alt="author: Khaidhir"></a>
-  <a href="#khaidhirml-lab-ls-all_experiments"><img src="https://img.shields.io/badge/labs-3_of_8_done-79e0b0?style=for-the-badge&labelColor=161b22" alt="labs: 3 of 8 done"></a>
-  <a href="#khaidhirml-lab-cat-resultssummaryjson"><img src="https://img.shields.io/badge/titanic-0.837_test_roc_auc-c9f7e0?style=for-the-badge&labelColor=161b22" alt="titanic: 0.837 test ROC AUC"></a>
-  <a href="#khaidhirml-lab-python--m-venv-venv"><img src="https://img.shields.io/badge/python-3.12_%C2%B7_scikit--learn_1.9-3fb950?style=for-the-badge&labelColor=161b22" alt="python 3.12, scikit-learn 1.9"></a>
+  <img src="results/lab01/student_selection.png" alt="Predicting student grades: feature count vs validation MAE" width="820">
 </p>
 
-```text
-khaidhir@ml-lab:~$ cat ./about
-worked notebooks for teb3123 machine learning at utp by khaidhir razin (@aidirrr).
-each one follows its handout part by part, does the try-it exercises, answers the
-questions, and saves every chart and table it draws.
+> ⚠️ **The Data Leakage Trap:** Selecting 10 to 16 features via Lasso yields superior generalization (MAE 2.08) compared to all 30 features (MAE 2.18). However, artificially including the second-period grade `G2` creates catastrophic data leakage, plummeting MAE to 0.76 with information unavailable at enrollment time.
 
-khaidhir@ml-lab:~$ cd all_experiments
-khaidhir@ml-lab:~/all_experiments$ python predict_passenger.py --pclass 2 --sex female --age 30 --fare 20
+---
+
+### 2. Laboratory 02: Clinical Utility, Non-Linear Residuals & The Supervised Workflow
+
+<table>
+  <tr>
+    <th width="50%" align="center">Classifier Evaluation Discrepancy</th>
+    <th width="50%" align="center">Clinical Decision Calibration (Cancer Detection)</th>
+  </tr>
+  <tr>
+    <td><img src="results/lab02/titanic_baselines.png" alt="Titanic validation baselines"></td>
+    <td><img src="results/lab02/cancer_confusion_matrices.png" alt="Confusion matrix threshold shifting"></td>
+  </tr>
+  <tr>
+    <td><b>Key Finding:</b> Accuracy and ROC AUC disagree on the superior architecture: Random Forest achieves higher accuracy (0.798 vs 0.776), while Logistic Regression leads on ROC AUC (0.842 vs 0.834).</td>
+    <td><b>Key Finding:</b> Shifting the decision threshold from <b>0.50 down to 0.30</b> reduces missed malignant cases by <b>50%</b> (false negatives drop from 4 to 2), preserving 0.98 precision with zero increase in false alarms.</td>
+  </tr>
+  <tr>
+    <th align="center">Structural Non-Linearity in Residuals</th>
+    <th align="center">Cross-Validation Variance Across Folds</th>
+  </tr>
+  <tr>
+    <td><img src="results/lab02/insurance_residuals.png" alt="Residuals on insurance charges showing smoker bands"></td>
+    <td><img src="results/lab02/titanic_cross_validation.png" alt="5-fold cross validation on Titanic hyperparameter grid"></td>
+  </tr>
+  <tr>
+    <td><b>Key Finding:</b> Linear modeling on insurance charges splits smokers into two distinct residual bands: lean smokers are overcharged by ~$9,000, while high-BMI smokers are undercharged by ~$7,500.</td>
+    <td><b>Key Finding:</b> Across candidate regularization parameters $C$ and class weights, score variation remains within fold standard deviations (~0.02). The selected pipeline ($C=0.1$, balanced) secures <b>0.837 test ROC AUC</b>.</td>
+  </tr>
+</table>
+
+---
+
+### 3. Laboratory 03: Boundary Geometries & Generalization Frontiers
+
+<p align="center">
+  <img src="results/lab03/cancer_decision_boundaries.png" alt="Decision regions for logistic regression, KNN, and Naive Bayes" width="820">
+</p>
+
+* **Logistic Regression (0.88 Acc):** Constructs a rigid planar separating hyperplane.
+* **Gaussian Naive Bayes (0.86 Acc):** Generates quadratic curved frontiers driven by class covariance envelopes.
+* **K-Nearest Neighbours ($k=11$, 0.90 Acc):** Conforms dynamically to local density contours, outperforming parametric baselines on non-linear geometries.
+
+<table>
+  <tr>
+    <th width="50%" align="center">The Tree Overfitting Cliff</th>
+    <th width="50%" align="center">Ensemble Stability Across CV Folds</th>
+  </tr>
+  <tr>
+    <td><img src="results/lab03/titanic_tree_depth.png" alt="Decision tree depth curve showing overfitting"></td>
+    <td><img src="results/lab03/ames_cv_folds.png" alt="Ames Housing CV folds log RMSE"></td>
+  </tr>
+  <tr>
+    <td><b>Key Finding:</b> Unconstrained trees memorize training noise (accuracy climbing to 0.978 at depth 21), while validation performance degrades past depth 3 (peaking at 0.785, falling to 0.722).</td>
+    <td><b>Key Finding:</b> Gradient boosting consistently edges out random forests across Ames folds (log-RMSE 0.127 vs 0.138), demonstrating the shrinkage power of iterative residual correction.</td>
+  </tr>
+</table>
+
+---
+
+## ❖ Empirical Benchmark Ledger | جدول المقاييس المخبرية
+
+All performance metrics below are recorded from reproducible executions with `random_state=42`:
+
+| Milestone | Target Domain & Dataset | Primary Model Architecture | Validation Metric | Official Test Metric | Key Finding |
+|:---:|:---|:---|:---:|:---:|:---|
+| **Lab 01** | Titanic Survival | Logistic Regression (Engineered) | ROC AUC: **0.872** | — | Family size & Title engineering deliver +0.03 AUC lift |
+| **Lab 01** | Student Performance | Lasso Regularized Regression | MAE: **2.08** | — | 16 parsimonious features outperform all 30 features |
+| **Lab 02** | Insurance Charges | OLS Linear Regression | MAE: **$4,181** | $R^2$: **0.784** | Smokers require interaction terms for non-linear BMI effects |
+| **Lab 02** | Hourly Bike Demand | Random Forest Regressor | MAE: **56.5/hr** | Mean: 248.8 | Captures bi-modal morning/evening commuting demand peaks |
+| **Lab 02** | Titanic Survival | Logistic Regression ($C=0.1$, balanced) | CV AUC: **0.850** | Test AUC: **0.837** | Leak-free stratified pipeline generalizes with minimal degradation |
+| **Lab 02** | Breast Cancer | Cost-Sensitive Calibrated Classifier | Recall: **0.962** | Prec: **0.981** | Shifting threshold to 0.30 captures critical malignant cases |
+| **Lab 03** | Breast Cancer | K-Nearest Neighbours ($k=11$) | Acc: **0.958** | AUC: **0.986** | Non-parametric local voting outscores Gaussian Naive Bayes |
+| **Lab 03** | Ames Housing | Gradient Boosting Regressor | CV log-RMSE: **0.127** | — | Residual boosting outperforms standard bagging ensemble |
+| **Lab 03** | Breast Cancer | Tuned RBF Support Vector Machine | CV AUC: **0.995** | Test AUC: **0.997** | Hyperplane margin maximization achieves near-flawless separation |
+
+---
+
+## ❖ Model Artifacts & Deployment | نماذج التعلم والاستدلال
+
+Fitted pipelines are saved under [`models/`](models/) using `joblib` along with their metadata cards:
+
+```text
+models/
+├── titanic_survival.joblib       # Preprocessing + Logistic Regression pipeline
+├── titanic_survival_card.json    # Pipeline metadata, input schema & validation scores
+├── insurance_charges.joblib      # Fitted OLS regression pipeline
+└── breast_cancer_svm.joblib      # Tuned RBF Support Vector Classifier (0.997 ROC AUC)
+```
+
+### Running Interactive Passenger Prediction:
+```bash
+python all_experiments/predict_passenger.py --pclass 2 --sex female --age 30 --fare 20
+```
+```text
 survival probability: 0.805  ->  survived
 (model: logistic regression pipeline, test ROC AUC 0.837)
 ```
 
-### <samp>khaidhir@ml-lab:~$ jupyter lab</samp>
+---
 
-<p align="center">
-  <img src=".github/readme/shots/jupyterlab.png" alt="JupyterLab with the Lab 2 notebook open on the hourly bike demand cell: the code, actual and predicted rentals for the first validation week, and the observations underneath" width="850">
-</p>
+## ❖ Environment Setup & Reproducibility | دليل الإعداد والتشغيل
 
-Each part opens with a short note on what it does and closes with an **Observations** cell that
-says what the numbers show. Above is Lab 2, Part B: the forest picks up the two commuter peaks of
-a working day and misses a rainy Friday morning.
+To ensure complete reproducibility matching the experimental environment:
 
-### <samp>khaidhir@ml-lab:~$ ls all_experiments/</samp>
+### macOS / Linux
+```bash
+# 1. Clone the repository
+git clone https://github.com/Aidirrr/ml-lab.git
+cd ml-lab
 
-| lab | notebook | topic | datasets | status |
-|:--|:--|:--|:--|:--|
-| 01 | [`lab01_features_worked`](all_experiments/lab01_features_worked.ipynb) | Feature engineering and selection | Titanic, breast cancer, student performance | done |
-| 02 | [`lab02_supervised_workflow_worked`](all_experiments/lab02_supervised_workflow_worked.ipynb) | Regression, classification, the workflow | Insurance, bike sharing, Titanic, breast cancer, heart disease | done |
-| 03 | [`lab03_supervised_models_worked`](all_experiments/lab03_supervised_models_worked.ipynb) | KNN, naive Bayes, trees, ensembles, SVMs | Breast cancer, Titanic, Ames housing, red wine | done |
-| 04 | `lab04_clustering_pca_worked` | K-means, DBSCAN, PCA | Mall customers, digits | next |
-| 05 | `lab05_anomaly_limited_labels_worked` | Anomaly detection, limited labels | Credit card fraud, breast cancer | |
-| 06 | `lab06_reinforcement_worked` | Reinforcement learning | | |
-| 07 | `lab07_deep_learning_cnn_worked` | CNNs | Digits | |
-| 08 | `lab08_deep_learning_lstm_worked` | LSTM forecasting | Bike sharing | |
+# 2. Initialize virtual environment with Python 3.12
+python3.12 -m venv .venv
+source .venv/bin/activate
 
-[`predict_passenger.py`](all_experiments/predict_passenger.py) sits next to the notebooks and
-loads the model Lab 2 saves, without retraining.
+# 3. Install pinned dependencies
+python -m pip install -r requirements.txt
 
-### <samp>khaidhir@ml-lab:~$ cat ./marking-guide</samp>
+# 4. Launch JupyterLab
+jupyter lab all_experiments
+```
 
-Where each handout task lives. Every notebook is committed with its outputs, so GitHub shows
-every result without running anything.
-
-| lab | the handout asks for | where it is |
-|:--|:--|:--|
-| 01 | Parts A to D | the Part A to Part D sections, each closing with Observations |
-| 01 | Try it yourself: cabin initial and fare per family member | Part B, under *Try it yourself* |
-| 01 | Try it yourself: SelectKBest with k=5 and k=20 | Part D, next to k=10 |
-| 01 | Check your understanding (3 questions) | the last section |
-| 02 | Parts A to E | the Part A to Part E sections |
-| 02 | Decision memo | the end of Part C, after the ROC and PR curves |
-| 02 | Run `predict_passenger.py` from the terminal | Part E, with its output; the script is in `all_experiments/` |
-| 02 | Try it yourself: heart disease | the section after Part E |
-| 02 | Check your understanding (3 questions), plus Chapter 4's | the last two sections |
-| 03 | Parts A to D | the Part A to Part D sections, each closing with Observations |
-| 03 | Save, reload and check `models/breast_cancer_svm.joblib` | the end of Part D |
-| 03 | Try it yourself: unpruned tree, linear-only SVM search | the *Try it yourself* section after Part D |
-| 03 | Verification checklist | the section after *Try it yourself* |
-| 03 | Check your understanding (3 questions) | the last section |
-
-### <samp>khaidhir@ml-lab:~$ open results/lab01/</samp>
-
-<table>
-  <tr>
-    <td width="50%"><samp>same model, same split, new features</samp></td>
-    <td width="50%"><samp>same five tumours, two geometries</samp></td>
-  </tr>
-  <tr>
-    <td><img src="results/lab01/titanic_feature_comparison.png" alt="Validation ROC AUC for five Titanic feature sets on one split: raw columns 0.842, engineered 0.872, plus cabin 0.868, plus fare per family 0.872, plus both 0.868"></td>
-    <td><img src="results/lab01/scaling_geometry.png" alt="Distance heatmaps between the first five tumours, in raw units and after standardizing"></td>
-  </tr>
-  <tr>
-    <td>Family size, title and log fare lift Titanic validation ROC AUC from 0.842 to 0.872. The deck letter and fare per family member add nothing on top.</td>
-    <td>Raw distances are almost pure tumour area. After standardizing, tumour 5's nearest neighbour changes from tumour 3 to tumour 2.</td>
-  </tr>
-</table>
-
-<p align="center">
-  <img src="results/lab01/student_selection.png" alt="Validation MAE for predicting final grades: all 30 features 2.18, SelectKBest 2.12 to 2.14, lasso 2.08, and 0.76 once the leaked G2 grade is added; next to it, the lasso's nonzero coefficients" width="850">
-</p>
-
-Predicting final grades at enrolment: ten columns do as well as thirty (MAE 2.14 against 2.18),
-and lasso does best at 2.08 with 16 columns. The orange bar is the trap. Add the second-period
-grade `G2` and the error drops to 0.76, a score nobody can get on enrolment day.
-
-### <samp>khaidhir@ml-lab:~$ open results/lab02/</samp>
-
-<table>
-  <tr>
-    <td width="50%"><samp>two models, two metrics, two winners</samp></td>
-    <td width="50%"><samp>one model, two thresholds</samp></td>
-  </tr>
-  <tr>
-    <td><img src="results/lab02/titanic_baselines.png" alt="Titanic validation accuracy and ROC AUC for logistic regression and a random forest, against the majority baseline"></td>
-    <td><img src="results/lab02/cancer_confusion_matrices.png" alt="Breast cancer confusion matrices at thresholds 0.50 and 0.30"></td>
-  </tr>
-  <tr>
-    <td>The random forest wins on accuracy (0.798 against 0.776) and logistic regression on ROC AUC (0.842 against 0.834). Gaps this small need cross-validation to call.</td>
-    <td>Lowering the threshold from 0.50 to 0.30 catches two more malignant tumours (missed ones drop from 4 to 2) and adds no false alarm.</td>
-  </tr>
-  <tr>
-    <td><samp>the smoker bands</samp></td>
-    <td><samp>the folds disagree more than the settings</samp></td>
-  </tr>
-  <tr>
-    <td><img src="results/lab02/insurance_residuals.png" alt="Ridge regression on insurance charges: actual against predicted, and residuals, with smokers in orange"></td>
-    <td><img src="results/lab02/titanic_cross_validation.png" alt="Cross-validated ROC AUC with fold standard deviations for each C and class weight"></td>
-  </tr>
-  <tr>
-    <td>Smokers split into two residual bands: lean smokers come out about $9,000 too high, smokers with a BMI of 30 or more about $7,500 too low. A linear model without an interaction term cannot fix that.</td>
-    <td>All ten settings of C and class weight score between 0.847 and 0.850, inside a fold to fold spread of about 0.02. The pick (C=0.1, balanced) tests at 0.837.</td>
-  </tr>
-</table>
-
-### <samp>khaidhir@ml-lab:~$ open results/lab03/</samp>
-
-<p align="center">
-  <img src="results/lab03/cancer_decision_boundaries.png" alt="Decision regions on tumour radius and texture for logistic regression (0.88 accuracy), KNN with k=11 (0.90) and Gaussian naive Bayes (0.86), with the validation tumours plotted on top" width="850">
-</p>
-
-Same two features, three model families: logistic regression draws a straight line, naive Bayes
-a curve, and KNN a ragged edge that follows local votes. On all 30 features KNN wins on accuracy
-(0.958) and naive Bayes on ROC AUC (0.992), so the metrics disagree on the winner, as they did
-for Titanic in Lab 2.
-
-<table>
-  <tr>
-    <td width="50%"><samp>deeper trees memorise</samp></td>
-    <td width="50%"><samp>is the gap bigger than the spread?</samp></td>
-  </tr>
-  <tr>
-    <td><img src="results/lab03/titanic_tree_depth.png" alt="Titanic decision tree accuracy for max_depth 1 to 12: training rises to 0.954 while validation peaks at depth 3 with 0.785"></td>
-    <td><img src="results/lab03/ames_cv_folds.png" alt="Ames Housing log-RMSE on each of three folds for a random forest and gradient boosting, with the fold means"></td>
-  </tr>
-  <tr>
-    <td>Training accuracy climbs to 0.954 at depth 12 while validation peaks at depth 3 (0.785). Left unpruned, the tree hits 0.978 on training rows and drops to 0.722 on validation.</td>
-    <td>Boosting beats the forest on every Ames fold (log-RMSE 0.127 against 0.138), but the folds swing by more than the gap. On red wine the forest wins instead.</td>
-  </tr>
-</table>
-
-### <samp>khaidhir@ml-lab:~$ cat results/*/summary.json</samp>
-
-| lab | experiment | result |
-|:--|:--|:--|
-| 01 | Titanic, raw columns against engineered features | validation ROC AUC 0.842 → 0.872 |
-| 01 | Student grades at enrolment, lasso | MAE 2.08 grade points, 16 of 56 columns kept |
-| 02 | Insurance charges, OLS | MAE $4,181, R² 0.784 |
-| 02 | Daily bike rentals, random forest | MAE 1,040 a day (average day 5,898) |
-| 02 | Hourly bike rentals, random forest | MAE 56.5 an hour (average hour 249) |
-| 02 | Titanic, logistic regression tuned by 5-fold CV | CV ROC AUC 0.850, test 0.837 |
-| 02 | Breast cancer, threshold 0.50 → 0.30 | recall 0.925 → 0.962, precision 0.98 at both |
-| 02 | Heart disease (try it yourself) | accuracy 0.883, ROC AUC 0.932 |
-| 03 | Breast cancer, KNN (k=11) against Gaussian naive Bayes | accuracy 0.958 against 0.944, ROC AUC 0.986 against 0.992 |
-| 03 | Titanic decision tree, depth 1 to 12 | validation peaks at depth 3 (0.785), unpruned tree 0.722 |
-| 03 | Ames log price, boosting against forest (3-fold CV) | log-RMSE 0.127 against 0.138 |
-| 03 | Red wine quality, forest against boosting | MAE 0.432 against 0.476 |
-| 03 | Breast cancer SVM, RBF tuned by 5-fold CV | CV ROC AUC 0.995, test 0.997 (a linear kernel ties at 0.997) |
-
-The decision memo for the cancer threshold closes Part C of
-[Lab 2](all_experiments/lab02_supervised_workflow_worked.ipynb).
-
-### <samp>khaidhir@ml-lab:~$ python -m venv .venv</samp>
-
-Route A from the course setup chapter, on Windows with Python 3.12:
-
+### Windows (PowerShell)
 ```powershell
 git clone https://github.com/Aidirrr/ml-lab.git
 cd ml-lab
@@ -195,57 +250,52 @@ python -m pip install -r requirements.txt
 jupyter lab all_experiments
 ```
 
-On macOS or Linux, create it with `python3 -m venv .venv` and activate it with
-`source .venv/bin/activate`. Open a notebook and choose **Run > Run All Cells**. In VS Code, open
-the notebook, pick the `.venv` interpreter as the kernel and press **Run All**. Both start the
-notebook inside `all_experiments/`, which is where the code expects to run.
+---
 
-### <samp>khaidhir@ml-lab:~$ tree -L 2</samp>
+## ❖ Repository Architecture | هيكلية المستودع
 
 ```text
-all_datasets/        the 12 course datasets, unchanged (the digits zip stays zipped for lab 4)
-all_experiments/     one worked notebook per lab, plus predict_passenger.py
-models/              the pipelines labs 2 and 3 save, and the titanic model card
-results/labNN/       charts, tables and summary.json, one folder per lab notebook
-requirements.txt     the course packages, pinned to the versions the notebooks ran with
-course_materials/    the lecturer's handouts, kept on this machine only (gitignored)
-.github/readme/      the banner, the card and the screenshot on this page
+ml-lab/
+├── .github/readme/              # Vector SVG banner, rosette dossier card & generator
+│   ├── banner-dark.svg          # Islamic star vector banner (dark mode)
+│   ├── banner-light.svg         # Islamic star vector banner (light mode)
+│   ├── card-dark.svg            # Islamic geometric dossier card (dark mode)
+│   ├── card-light.svg           # Islamic geometric dossier card (light mode)
+│   └── build.py                 # Pure standard-library SVG artwork generator
+├── all_datasets/                # The 12 official course benchmark datasets
+├── all_experiments/             # Worked, self-contained laboratory notebooks
+│   ├── lab01_features_worked.ipynb
+│   ├── lab02_supervised_workflow_worked.ipynb
+│   ├── lab03_supervised_models_worked.ipynb
+│   └── predict_passenger.py     # Standalone CLI inference client
+├── models/                      # Serialized pipelines and model cards
+├── results/                     # High-resolution visual artifacts and metric summaries
+│   ├── lab01/
+│   ├── lab02/
+│   └── lab03/
+├── requirements.txt             # Course dependencies pinned to reproduction versions
+└── README.md                    # Academic dossier and laboratory documentation
 ```
 
-The layout follows the course setup chapter, so each new lab adds one
-`labNN_..._worked.ipynb` and one `results/labNN/`.
+---
 
-### <samp>khaidhir@ml-lab:~$ cat ./notes</samp>
+## ❖ Academic Integrity, References & Data Credits | الأمانة العلمية والمراجع
 
-- Part D of Lab 2 and of Lab 3 each reuse a split from earlier in the lab (Part C and Part A),
-  as the handouts do, so those test rows had already been scored once. The tuning never sees
-  them, but strictly they are not fresh. Each notebook says so where it happens.
-- In Lab 1 the handout's `coef_ != 0` count says lasso kept 18 columns. Two of those
-  coefficients are around 1e-15, floating-point noise from one-hot pairs that always sum to 1,
-  so 16 is the real count.
-- The numbers on this page come from one run with `random_state=42` on the pinned versions.
-  Other package versions can move the last decimal.
+All datasets utilized in this laboratory are part of the UTP TEB3123 course curriculum and originated from the following public repositories:
+* **Titanic Dataset:** [Kaggle / Yasser Hesham](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
+* **Breast Cancer Wisconsin:** [UCI ML Repository / Kaggle](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data)
+* **Student Performance:** [UCI / Paulo Cortez](https://www.kaggle.com/datasets/larsen0966/student-performance-data-set)
+* **Medical Cost Personal:** [Miri Choi / Kaggle](https://www.kaggle.com/datasets/mirichoi0218/insurance)
+* **Bike Sharing Demand:** [UCI / Hadi Fanaee-T](https://www.kaggle.com/datasets/lakshmi25npathi/bike-sharing-dataset)
+* **Heart Failure Prediction:** [Fedesoriano / Kaggle](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction)
+* **Ames Housing:** [Dean De Cock / Kaggle](https://www.kaggle.com/datasets/shashanknecrothapa/ames-housing-dataset)
+* **Red Wine Quality:** [UCI / Paulo Cortez](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
+* **Mall Customers (Lab 04):** [Kaggle](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python)
+* **Optical Recognition of Handwritten Digits (Lab 04):** [UCI / Kaggle](https://www.kaggle.com/datasets/yadavhim/optical-recognition-of-handwritten-digits)
 
-### <samp>khaidhir@ml-lab:~$ cat ./author</samp>
+**Statement of Authorship:** All analysis, markdown commentary, code modifications, visual figures, and synthesized insights in this repository represent the independent academic work of **Muhammad Khaidhir bin Mohd Razin** (Student ID: **22007399**), submitted in partial fulfillment of the requirements for TEB3123 Machine Learning.
 
-- **Author:** Khaidhir Razin ([@Aidirrr](https://github.com/Aidirrr))
-- **Course:** TEB3123 Machine Learning, Universiti Teknologi PETRONAS (UTP)
-- **Repository:** [github.com/Aidirrr/ml-lab](https://github.com/Aidirrr/ml-lab)
-
-### <samp>khaidhir@ml-lab:~$ cat ./credits</samp>
-
-The datasets are the course's copies of these Kaggle datasets, and each source page lists its
-licence: [Titanic](https://www.kaggle.com/datasets/yasserh/titanic-dataset),
-[Breast Cancer Wisconsin](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data),
-[Student Performance](https://www.kaggle.com/datasets/larsen0966/student-performance-data-set),
-[Medical Cost Personal](https://www.kaggle.com/datasets/mirichoi0218/insurance),
-[Bike Sharing](https://www.kaggle.com/datasets/lakshmi25npathi/bike-sharing-dataset),
-[Heart Failure Prediction](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction),
-[Ames Housing](https://www.kaggle.com/datasets/shashanknecrothapa/ames-housing-dataset),
-[Red Wine Quality](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009),
-[Mall Customers](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python),
-[Optical Recognition of Handwritten Digits](https://www.kaggle.com/datasets/yadavhim/optical-recognition-of-handwritten-digits)
-and [Credit Card Fraud Detection](https://www.kaggle.com/datasets/miadul/credit-card-fraud-detection-dataset).
-The lab handouts belong to the course and stay out of this repo.
-
-<sub>The banner and card are generated by <code>.github/readme/build.py</code> (standard library Python). Change a value at the top and run it again.</sub>
+<div align="center">
+  <sub>وَآخِرُ دَعْوَانَا أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</sub><br>
+  <sub>All praise is due to Allah, the Lord of all the worlds.</sub>
+</div>

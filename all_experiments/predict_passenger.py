@@ -1,5 +1,9 @@
 """Predict Titanic survival for one passenger with the model saved by Lab 2.
 
+Author: Muhammad Khaidhir bin Mohd Razin (Student ID: 22007399)
+Course: TEB3123 Machine Learning · Universiti Teknologi PETRONAS (UTP)
+Evaluator / GA: Reeyan Afzal
+
 The Lab 2 notebook trained the model and saved two files in models/:
   titanic_survival.joblib      the fitted pipeline (preprocessing + classifier)
   titanic_survival_card.json   what the model expects and how well it tested

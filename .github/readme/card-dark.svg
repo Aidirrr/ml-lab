@@ -1,45 +1,151 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 528" width="850" height="528" role="img" aria-label="ML-LAB, Khaidhir's worked notebooks for UTP's TEB3123 Machine Learning: three of eight labs done, covering feature engineering and selection, the supervised workflow and the main model families, with a breast cancer SVM at 0.997 test ROC AUC">
-<defs><linearGradient id="ramp" gradientUnits="userSpaceOnUse" x1="0" y1="49" x2="0" y2="479"><stop offset="0" stop-color="#c9f7e0"/><stop offset="0.55" stop-color="#79e0b0"/><stop offset="1" stop-color="#2fae7c"/></linearGradient></defs>
-<style>
-    text { font-family: ui-monospace,'SFMono-Regular','SF Mono',Menlo,Consolas,'Liberation Mono',monospace; }
-    .fg  { fill: #e6edf3; font-size: 14px; }
-    .mut { fill: #8b949e; font-size: 14px; }
-    .acc { fill: #79e0b0; font-size: 14px; }
-    .pos { fill: #3fb950; font-size: 14px; }
-    .b   { font-weight: 600; }
-    .sm  { font-size: 12px; }
-    </style>
-<path d="M46.3 73.8h0M46.3 78.3h0M42.2 82.8h0M50.3 69.3h0M50.3 73.8h0M50.3 78.3h0M54.4 73.8h0M54.4 78.3h0M50.3 82.8h0M58.4 82.8h0M143.5 82.8h0M147.5 82.8h0M38.2 87.2h0M50.3 87.2h0M50.3 91.7h0M50.3 96.2h0M50.3 100.7h0M62.5 87.2h0M94.9 100.7h0M98.9 100.7h0M135.4 91.7h0M135.4 96.2h0M139.4 87.2h0M139.4 91.7h0M139.4 96.2h0M143.5 87.2h0M143.5 91.7h0M143.5 96.2h0M139.4 100.7h0M143.5 100.7h0M147.5 87.2h0M147.5 91.7h0M147.5 96.2h0M151.6 87.2h0M151.6 91.7h0M151.6 96.2h0M147.5 100.7h0M151.6 100.7h0M155.6 91.7h0M155.6 96.2h0M208.3 100.7h0M212.3 96.2h0M216.4 91.7h0M216.4 96.2h0M212.3 100.7h0M216.4 100.7h0M220.4 91.7h0M220.4 96.2h0M224.5 96.2h0M220.4 100.7h0M224.5 100.7h0M228.5 100.7h0M378.4 100.7h0M382.4 100.7h0M386.5 100.7h0M398.6 100.7h0M402.7 100.7h0M406.7 100.7h0M410.8 100.7h0M50.3 105.1h0M50.3 109.6h0M50.3 114.1h0M50.3 118.6h0M86.8 109.6h0M86.8 114.1h0M90.8 105.1h0M90.8 109.6h0M90.8 114.1h0M94.9 105.1h0M94.9 109.6h0M94.9 114.1h0M90.8 118.6h0M94.9 118.6h0M98.9 105.1h0M98.9 109.6h0M98.9 114.1h0M103.0 105.1h0M103.0 109.6h0M103.0 114.1h0M98.9 118.6h0M103.0 118.6h0M107.0 109.6h0M107.0 114.1h0M143.5 105.1h0M147.5 105.1h0M208.3 105.1h0M212.3 105.1h0M212.3 109.6h0M216.4 105.1h0M216.4 109.6h0M216.4 114.1h0M220.4 105.1h0M220.4 109.6h0M220.4 114.1h0M224.5 105.1h0M224.5 109.6h0M228.5 105.1h0M329.8 118.6h0M337.9 114.1h0M333.8 118.6h0M337.9 118.6h0M350.0 109.6h0M354.1 109.6h0M358.1 105.1h0M358.1 109.6h0M362.2 105.1h0M374.3 105.1h0M378.4 105.1h0M50.3 123.0h0M50.3 127.5h0M50.3 132.0h0M50.3 136.5h0M94.9 123.0h0M98.9 123.0h0M175.9 136.5h0M179.9 132.0h0M184.0 127.5h0M184.0 132.0h0M179.9 136.5h0M184.0 136.5h0M188.0 127.5h0M188.0 132.0h0M192.1 132.0h0M188.0 136.5h0M192.1 136.5h0M196.1 136.5h0M313.6 132.0h0M309.5 136.5h0M313.6 136.5h0M317.6 127.5h0M317.6 132.0h0M325.7 123.0h0M329.8 123.0h0M50.3 140.9h0M50.3 145.4h0M50.3 149.9h0M50.3 154.4h0M119.2 154.4h0M123.2 154.4h0M175.9 140.9h0M179.9 140.9h0M179.9 145.4h0M184.0 140.9h0M184.0 145.4h0M184.0 149.9h0M188.0 140.9h0M188.0 145.4h0M188.0 149.9h0M192.1 140.9h0M192.1 145.4h0M196.1 140.9h0M248.8 154.4h0M252.8 149.9h0M256.9 145.4h0M256.9 149.9h0M252.8 154.4h0M256.9 154.4h0M260.9 145.4h0M260.9 149.9h0M265.0 149.9h0M260.9 154.4h0M265.0 154.4h0M269.0 154.4h0M297.4 149.9h0M293.3 154.4h0M297.4 154.4h0M301.4 145.4h0M50.3 158.8h0M50.3 163.3h0M50.3 167.8h0M50.3 172.3h0M111.1 163.3h0M111.1 167.8h0M115.1 158.8h0M115.1 163.3h0M115.1 167.8h0M119.2 158.8h0M119.2 163.3h0M119.2 167.8h0M115.1 172.3h0M119.2 172.3h0M123.2 158.8h0M123.2 163.3h0M123.2 167.8h0M127.3 158.8h0M127.3 163.3h0M127.3 167.8h0M123.2 172.3h0M127.3 172.3h0M131.3 163.3h0M131.3 167.8h0M200.2 172.3h0M204.2 172.3h0M248.8 158.8h0M252.8 158.8h0M252.8 163.3h0M256.9 158.8h0M256.9 163.3h0M256.9 167.8h0M260.9 158.8h0M260.9 163.3h0M260.9 167.8h0M265.0 158.8h0M265.0 163.3h0M269.0 158.8h0M281.2 172.3h0M285.2 167.8h0M293.3 158.8h0M50.3 176.7h0M50.3 181.2h0M50.3 185.7h0M50.3 190.2h0M119.2 176.7h0M123.2 176.7h0M159.7 190.2h0M163.7 190.2h0M192.1 181.2h0M192.1 185.7h0M196.1 176.7h0M196.1 181.2h0M196.1 185.7h0M200.2 176.7h0M200.2 181.2h0M200.2 185.7h0M196.1 190.2h0M200.2 190.2h0M204.2 176.7h0M204.2 181.2h0M204.2 185.7h0M208.3 176.7h0M208.3 181.2h0M208.3 185.7h0M204.2 190.2h0M208.3 190.2h0M212.3 181.2h0M212.3 185.7h0M269.0 190.2h0M273.1 190.2h0M277.1 176.7h0M277.1 181.2h0M281.2 176.7h0M50.3 194.6h0M50.3 199.1h0M50.3 203.6h0M50.3 208.1h0M70.6 208.1h0M74.6 203.6h0M78.7 199.1h0M78.7 203.6h0M74.6 208.1h0M78.7 208.1h0M82.7 199.1h0M82.7 203.6h0M86.8 203.6h0M82.7 208.1h0M86.8 208.1h0M90.8 208.1h0M151.6 199.1h0M151.6 203.6h0M155.6 194.6h0M155.6 199.1h0M155.6 203.6h0M159.7 194.6h0M159.7 199.1h0M159.7 203.6h0M155.6 208.1h0M159.7 208.1h0M163.7 194.6h0M163.7 199.1h0M163.7 203.6h0M167.8 194.6h0M167.8 199.1h0M167.8 203.6h0M163.7 208.1h0M167.8 208.1h0M171.8 199.1h0M171.8 203.6h0M200.2 194.6h0M204.2 194.6h0M265.0 199.1h0M265.0 203.6h0M269.0 194.6h0M269.0 199.1h0M50.3 212.5h0M50.3 217.0h0M50.3 221.5h0M50.3 226.0h0M70.6 212.5h0M74.6 212.5h0M74.6 217.0h0M78.7 212.5h0M78.7 217.0h0M78.7 221.5h0M82.7 212.5h0M82.7 217.0h0M82.7 221.5h0M86.8 212.5h0M86.8 217.0h0M90.8 212.5h0M159.7 212.5h0M163.7 212.5h0M256.9 217.0h0M256.9 221.5h0M252.8 226.0h0M256.9 226.0h0M260.9 212.5h0M260.9 217.0h0M50.3 230.4h0M50.3 234.9h0M50.3 239.4h0M50.3 243.9h0M248.8 234.9h0M248.8 239.4h0M244.7 243.9h0M248.8 243.9h0M374.3 239.4h0M378.4 234.9h0M374.3 243.9h0M382.4 230.4h0M386.5 230.4h0M390.5 230.4h0M394.6 230.4h0M398.6 234.9h0M402.7 239.4h0M402.7 243.9h0M50.3 248.3h0M50.3 252.8h0M50.3 257.3h0M50.3 261.8h0M103.0 261.8h0M107.0 257.3h0M111.1 252.8h0M111.1 257.3h0M107.0 261.8h0M111.1 261.8h0M115.1 252.8h0M115.1 257.3h0M119.2 257.3h0M115.1 261.8h0M119.2 261.8h0M123.2 261.8h0M236.6 261.8h0M240.7 261.8h0M244.7 248.3h0M244.7 252.8h0M273.1 261.8h0M277.1 261.8h0M321.7 261.8h0M325.7 257.3h0M329.8 257.3h0M333.8 257.3h0M337.9 257.3h0M341.9 261.8h0M374.3 248.3h0M374.3 252.8h0M378.4 257.3h0M382.4 261.8h0M386.5 261.8h0M390.5 261.8h0M394.6 261.8h0M398.6 257.3h0M402.7 248.3h0M402.7 252.8h0M50.3 266.2h0M50.3 270.7h0M50.3 275.2h0M50.3 279.7h0M103.0 266.2h0M107.0 266.2h0M107.0 270.7h0M111.1 266.2h0M111.1 270.7h0M111.1 275.2h0M115.1 266.2h0M115.1 270.7h0M115.1 275.2h0M119.2 266.2h0M119.2 270.7h0M123.2 266.2h0M232.6 270.7h0M232.6 275.2h0M236.6 266.2h0M236.6 270.7h0M265.0 270.7h0M265.0 275.2h0M269.0 266.2h0M269.0 270.7h0M269.0 275.2h0M273.1 266.2h0M273.1 270.7h0M273.1 275.2h0M269.0 279.7h0M273.1 279.7h0M277.1 266.2h0M277.1 270.7h0M277.1 275.2h0M281.2 266.2h0M281.2 270.7h0M281.2 275.2h0M277.1 279.7h0M281.2 279.7h0M285.2 270.7h0M285.2 275.2h0M317.6 266.2h0M317.6 270.7h0M317.6 275.2h0M317.6 279.7h0M346.0 266.2h0M346.0 270.7h0M346.0 275.2h0M346.0 279.7h0M50.3 284.1h0M50.3 288.6h0M50.3 293.1h0M50.3 297.6h0M224.5 288.6h0M224.5 293.1h0M220.4 297.6h0M224.5 297.6h0M228.5 284.1h0M228.5 288.6h0M273.1 284.1h0M277.1 284.1h0M321.7 284.1h0M325.7 288.6h0M329.8 288.6h0M333.8 288.6h0M337.9 288.6h0M341.9 284.1h0M50.3 302.0h0M50.3 306.5h0M50.3 311.0h0M50.3 315.5h0M135.4 315.5h0M139.4 311.0h0M143.5 311.0h0M147.5 311.0h0M151.6 311.0h0M155.6 315.5h0M216.4 311.0h0M212.3 315.5h0M216.4 315.5h0M277.1 311.0h0M281.2 306.5h0M277.1 315.5h0M285.2 302.0h0M289.3 302.0h0M293.3 302.0h0M297.4 302.0h0M301.4 306.5h0M305.5 311.0h0M305.5 315.5h0M50.3 319.9h0M50.3 324.4h0M50.3 328.9h0M50.3 333.4h0M131.3 319.9h0M131.3 324.4h0M131.3 328.9h0M131.3 333.4h0M159.7 319.9h0M159.7 324.4h0M159.7 328.9h0M159.7 333.4h0M204.2 333.4h0M212.3 319.9h0M212.3 324.4h0M277.1 319.9h0M277.1 324.4h0M281.2 328.9h0M285.2 333.4h0M289.3 333.4h0M293.3 333.4h0M297.4 333.4h0M301.4 328.9h0M305.5 319.9h0M305.5 324.4h0M341.9 328.9h0M346.0 324.4h0M341.9 333.4h0M350.0 319.9h0M354.1 319.9h0M358.1 319.9h0M362.2 319.9h0M366.2 324.4h0M370.3 328.9h0M370.3 333.4h0M50.3 337.8h0M50.3 342.3h0M50.3 346.8h0M50.3 351.3h0M135.4 337.8h0M139.4 342.3h0M143.5 342.3h0M147.5 342.3h0M151.6 342.3h0M155.6 337.8h0M200.2 342.3h0M200.2 346.8h0M204.2 337.8h0M204.2 342.3h0M220.4 346.8h0M224.5 342.3h0M220.4 351.3h0M228.5 337.8h0M232.6 337.8h0M236.6 337.8h0M240.7 337.8h0M244.7 342.3h0M248.8 346.8h0M248.8 351.3h0M341.9 337.8h0M341.9 342.3h0M346.0 346.8h0M350.0 351.3h0M354.1 351.3h0M358.1 351.3h0M362.2 351.3h0M366.2 346.8h0M370.3 337.8h0M370.3 342.3h0M50.3 355.7h0M50.3 360.2h0M50.3 364.7h0M50.3 369.2h0M184.0 369.2h0M188.0 360.2h0M188.0 364.7h0M192.1 355.7h0M192.1 360.2h0M188.0 369.2h0M220.4 355.7h0M220.4 360.2h0M224.5 364.7h0M228.5 369.2h0M232.6 369.2h0M236.6 369.2h0M240.7 369.2h0M244.7 364.7h0M248.8 355.7h0M248.8 360.2h0M50.3 373.6h0M50.3 378.1h0M50.3 382.6h0M50.3 387.1h0M171.8 382.6h0M175.9 378.1h0M175.9 382.6h0M171.8 387.1h0M179.9 378.1h0M293.3 382.6h0M297.4 378.1h0M293.3 387.1h0M301.4 373.6h0M305.5 373.6h0M309.5 373.6h0M313.6 373.6h0M317.6 378.1h0M321.7 382.6h0M321.7 387.1h0M370.3 387.1h0M374.3 382.6h0M378.4 382.6h0M382.4 382.6h0M386.5 382.6h0M390.5 387.1h0M50.3 391.5h0M50.3 396.0h0M50.3 400.5h0M50.3 405.0h0M151.6 405.0h0M155.6 400.5h0M159.7 396.0h0M159.7 400.5h0M155.6 405.0h0M163.7 396.0h0M171.8 400.5h0M175.9 396.0h0M171.8 405.0h0M179.9 391.5h0M184.0 391.5h0M188.0 391.5h0M192.1 391.5h0M196.1 396.0h0M200.2 400.5h0M200.2 405.0h0M252.8 400.5h0M256.9 396.0h0M252.8 405.0h0M260.9 391.5h0M265.0 391.5h0M269.0 391.5h0M273.1 391.5h0M277.1 396.0h0M281.2 400.5h0M281.2 405.0h0M293.3 391.5h0M293.3 396.0h0M297.4 400.5h0M301.4 405.0h0M305.5 405.0h0M309.5 405.0h0M313.6 405.0h0M317.6 400.5h0M321.7 391.5h0M321.7 396.0h0M366.2 391.5h0M366.2 396.0h0M366.2 400.5h0M366.2 405.0h0M394.6 391.5h0M394.6 396.0h0M394.6 400.5h0M394.6 405.0h0M50.3 409.4h0M50.3 413.9h0M50.3 418.4h0M50.3 422.9h0M115.1 422.9h0M119.2 422.9h0M131.3 418.4h0M135.4 413.9h0M135.4 418.4h0M139.4 413.9h0M143.5 413.9h0M171.8 409.4h0M171.8 413.9h0M175.9 418.4h0M179.9 422.9h0M184.0 422.9h0M188.0 422.9h0M192.1 422.9h0M196.1 418.4h0M200.2 409.4h0M200.2 413.9h0M252.8 409.4h0M252.8 413.9h0M256.9 418.4h0M260.9 422.9h0M265.0 422.9h0M269.0 422.9h0M273.1 422.9h0M277.1 418.4h0M281.2 409.4h0M281.2 413.9h0M370.3 409.4h0M374.3 413.9h0M378.4 413.9h0M382.4 413.9h0M386.5 413.9h0M390.5 409.4h0M50.3 427.3h0M50.3 431.8h0M50.3 436.3h0M50.3 440.8h0M82.7 431.8h0M86.8 431.8h0M90.8 431.8h0M94.9 427.3h0M94.9 431.8h0M107.0 427.3h0M111.1 427.3h0M115.1 427.3h0M406.7 440.8h0M50.3 445.2h0M50.3 449.7h0M50.3 454.2h0M54.4 454.2h0M58.4 454.2h0M62.5 454.2h0M66.5 454.2h0M70.6 454.2h0M74.6 454.2h0M78.7 454.2h0M82.7 454.2h0M86.8 454.2h0M90.8 454.2h0M94.9 454.2h0M98.9 454.2h0M103.0 454.2h0M107.0 454.2h0M111.1 454.2h0M115.1 454.2h0M119.2 454.2h0M123.2 454.2h0M127.3 454.2h0M131.3 454.2h0M135.4 454.2h0M139.4 454.2h0M143.5 454.2h0M147.5 454.2h0M151.6 454.2h0M155.6 454.2h0M159.7 454.2h0M163.7 454.2h0M167.8 454.2h0M171.8 454.2h0M175.9 454.2h0M179.9 454.2h0M184.0 454.2h0M188.0 454.2h0M192.1 454.2h0M196.1 454.2h0M200.2 454.2h0M204.2 454.2h0M208.3 454.2h0M212.3 454.2h0M216.4 454.2h0M220.4 454.2h0M224.5 454.2h0M228.5 454.2h0M232.6 454.2h0M236.6 454.2h0M240.7 454.2h0M244.7 454.2h0M248.8 454.2h0M252.8 454.2h0M256.9 454.2h0M260.9 454.2h0M265.0 454.2h0M269.0 454.2h0M273.1 454.2h0M277.1 454.2h0M281.2 454.2h0M285.2 454.2h0M289.3 454.2h0M293.3 454.2h0M297.4 454.2h0M301.4 454.2h0M305.5 454.2h0M309.5 454.2h0M313.6 454.2h0M317.6 454.2h0M321.7 454.2h0M325.7 454.2h0M329.8 454.2h0M333.8 454.2h0M337.9 454.2h0M341.9 454.2h0M346.0 454.2h0M350.0 454.2h0M354.1 454.2h0M358.1 454.2h0M362.2 454.2h0M366.2 454.2h0M370.3 454.2h0M374.3 454.2h0M378.4 454.2h0M382.4 454.2h0M386.5 454.2h0M390.5 454.2h0M394.6 454.2h0M398.6 454.2h0M402.7 454.2h0M406.7 454.2h0M410.8 445.2h0M410.8 454.2h0M414.8 449.7h0M414.8 454.2h0M418.9 449.7h0M418.9 454.2h0M414.8 458.7h0M418.9 458.7h0M422.9 454.2h0M406.7 467.6h0M410.8 463.1h0" fill="none" stroke="url(#ramp)" stroke-width="2.5" stroke-linecap="round"/>
-<text x="460" y="52" xml:space="preserve"><tspan class="acc b">khaidhir@ml-lab</tspan><tspan class="mut">:~$</tspan><tspan class="fg"> ./fit --labs</tspan><tspan class="acc">▊<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.2s" repeatCount="indefinite"/></tspan></text>
-<text class="mut" x="460" y="78" font-style="italic">eight labs · by khaidhir razin</text>
-<line x1="460" y1="92" x2="826" y2="92" stroke="#8b949e" stroke-opacity="0.45" stroke-width="1"/>
-<text class="fg" x="566" y="114" xml:space="preserve"><tspan class="acc" x="460">course</tspan><tspan x="566">teb3123 machine learning, utp</tspan></text>
-<text class="fg" x="566" y="134" xml:space="preserve"><tspan class="acc" x="460">labs</tspan><tspan x="566">3 of 8 done</tspan></text>
-<rect x="670" y="124" width="14" height="10" rx="2" fill="#79e0b0"/>
-<rect x="690" y="124" width="14" height="10" rx="2" fill="#79e0b0"/>
-<rect x="710" y="124" width="14" height="10" rx="2" fill="#79e0b0"/>
-<rect x="730" y="124" width="14" height="10" rx="2" fill="#8b949e"/>
-<rect x="750" y="124" width="14" height="10" rx="2" fill="#8b949e"/>
-<rect x="770" y="124" width="14" height="10" rx="2" fill="#8b949e"/>
-<rect x="790" y="124" width="14" height="10" rx="2" fill="#8b949e"/>
-<rect x="810" y="124" width="14" height="10" rx="2" fill="#8b949e"/>
-<text class="fg" x="566" y="154" xml:space="preserve"><tspan class="acc" x="460">stack</tspan><tspan x="566">python 3.12 · scikit-learn 1.9</tspan></text>
-<text class="fg" x="566" y="174" xml:space="preserve"><tspan class="acc" x="460">data</tspan><tspan x="566">12 course datasets</tspan></text>
-<text class="fg" x="566" y="234" xml:space="preserve"><tspan class="acc" x="460">lab 01</tspan><tspan x="566">features and selection</tspan></text>
-<text class="fg" x="566" y="254" xml:space="preserve"><tspan class="acc" x="460">lab 02</tspan><tspan x="566">the supervised workflow</tspan></text>
-<text class="fg" x="566" y="274" xml:space="preserve"><tspan class="acc" x="460">lab 03</tspan><tspan x="566">model families</tspan></text>
-<text class="fg" x="566" y="294" xml:space="preserve"><tspan class="acc" x="460">next</tspan><tspan x="566">lab 04, clustering and pca</tspan></text>
-<text class="fg" x="566" y="354" xml:space="preserve"><tspan class="acc" x="460">titanic</tspan><tspan x="566">0.837 test roc auc</tspan></text>
-<text class="fg" x="566" y="374" xml:space="preserve"><tspan class="acc" x="460">features</tspan><tspan x="566">auc 0.842 to 0.872</tspan></text>
-<text class="fg" x="566" y="394" xml:space="preserve"><tspan class="acc" x="460">bikes</tspan><tspan x="566">56.5 rentals/hour mae</tspan></text>
-<text class="fg" x="566" y="414" xml:space="preserve"><tspan class="acc" x="460">svm</tspan><tspan x="566">0.997 test roc auc</tspan></text>
-<rect x="460" y="460" width="16" height="10" rx="2" fill="#e3fbef"/>
-<rect x="482" y="460" width="16" height="10" rx="2" fill="#c9f7e0"/>
-<rect x="504" y="460" width="16" height="10" rx="2" fill="#a4efc9"/>
-<rect x="526" y="460" width="16" height="10" rx="2" fill="#79e0b0"/>
-<rect x="548" y="460" width="16" height="10" rx="2" fill="#52c995"/>
-<rect x="570" y="460" width="16" height="10" rx="2" fill="#2fae7c"/>
-<rect x="592" y="460" width="16" height="10" rx="2" fill="#228a62"/>
-<rect x="614" y="460" width="16" height="10" rx="2" fill="#17664a"/>
-<text class="sm" x="460" y="496" xml:space="preserve"><tspan class="pos sm">[ ok ]</tspan><tspan class="mut sm"> every notebook runs top to bottom</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 360" width="850" height="360" role="img" aria-label="ML-LAB Academic Research Dossier - Muhammad Khaidhir bin Mohd Razin (ID: 22007399), Universiti Teknologi PETRONAS, TEB3123 Machine Learning.">
+  <defs>
+    
+    <linearGradient id="bgGrad_dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#03150f"/>
+      <stop offset="50%" stop-color="#072b1f"/>
+      <stop offset="100%" stop-color="#02110c"/>
+    </linearGradient>
+    <linearGradient id="goldRamp_dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="emeraldRamp_dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <filter id="softGlow_dark" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+  </defs>
+
+  <!-- Outer Card Frame -->
+  <rect x="2" y="2" width="846" height="356" rx="14" fill="url(#bgGrad_dark)" stroke="#b45309" stroke-width="1.6" stroke-opacity="0.85"/>
+  <rect x="8" y="8" width="834" height="344" rx="10" fill="none" stroke="url(#goldRamp_dark)" stroke-width="0.75" stroke-dasharray="6,4" opacity="0.45"/>
+
+  <!-- Left Side: Islamic Sacred Geometry & Pattern -->
+  <g id="islamic_geometry">
+    <circle cx="185" cy="180" r="135.7" fill="none" stroke="url(#goldRamp_dark)" stroke-width="1" stroke-dasharray="4,6" opacity="0.45"/>
+    <circle cx="320.7" cy="180.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="310.4" cy="231.9" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="281.0" cy="276.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="236.9" cy="305.4" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="185.0" cy="315.7" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="133.1" cy="305.4" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="89.0" cy="276.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="59.6" cy="231.9" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="49.3" cy="180.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="59.6" cy="128.1" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="89.0" cy="84.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="133.1" cy="54.6" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="185.0" cy="44.3" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="236.9" cy="54.6" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <circle cx="281.0" cy="84.0" r="2.8" fill="url(#goldRamp_dark)" opacity="0.85"/>
+    <circle cx="310.4" cy="128.1" r="2.8" fill="url(#emeraldRamp_dark)" opacity="0.85"/>
+    <polygon points="295.4,180.0 185.0,290.4 74.6,180.0 185.0,69.6" fill="none" stroke="url(#emeraldRamp_dark)" stroke-width="1.8" opacity="0.8"/>
+    <polygon points="263.1,258.1 106.9,258.1 106.9,101.9 263.1,101.9" fill="none" stroke="url(#emeraldRamp_dark)" stroke-width="1.8" opacity="0.8"/>
+    <polygon points="185.0,83.4 207.9,124.8 253.3,111.7 240.2,157.1 281.6,180.0 240.2,202.9 253.3,248.3 207.9,235.2 185.0,276.6 162.1,235.2 116.7,248.3 129.8,202.9 88.4,180.0 129.8,157.1 116.7,111.7 162.1,124.8" fill="#06241a" stroke="url(#goldRamp_dark)" stroke-width="2" opacity="0.95"/>
+    <polygon points="195.3,128.1 202.9,153.2 229.0,150.6 216.6,173.7 236.9,190.3 211.8,197.9 214.4,224.0 191.3,211.6 174.7,231.9 167.1,206.8 141.0,209.4 153.4,186.3 133.1,169.7 158.2,162.1 155.6,136.0 178.7,148.4" fill="none" stroke="url(#goldRamp_dark)" stroke-width="1.4" opacity="0.9"/>
+    <circle cx="185" cy="180" r="19.6" fill="url(#emeraldRamp_dark)" stroke="url(#goldRamp_dark)" stroke-width="1.5"/>
+    <circle cx="185" cy="180" r="6.9" fill="#fbbf24"/>
+    <text x="185" y="325" font-family="'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Noto Naskh Arabic', serif" font-size="16" font-weight="bold" fill="url(#goldRamp_dark)" text-anchor="middle">
+      إِحْسَانٌ وَعِلْمٌ نَافِعٌ
+    </text>
+    <text x="185" y="342" font-family="ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace" font-size="9" fill="#94a3b8" text-anchor="middle" letter-spacing="1.5">
+      RIGOR · REPRODUCIBILITY · INTEGRITY
+    </text>
+  </g>
+
+  <!-- Vertical Divider with Gold Accent -->
+  <line x1="370" y1="28" x2="370" y2="332" stroke="url(#goldRamp_dark)" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+  <polygon points="370,175 375,180 370,185 365,180" fill="url(#goldRamp_dark)"/>
+
+  <!-- Right Side: Academic Dossier & Experimental Status -->
+  <!-- Header & Quranic Invocation -->
+  <text x="400" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="800" fill="url(#emeraldRamp_dark)" letter-spacing="2">
+    ✦ RESEARCH &amp; LABORATORY DOSSIER
+  </text>
+  <text x="400" y="70" font-family="'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Noto Naskh Arabic', serif" font-size="17" font-weight="bold" fill="url(#goldRamp_dark)">
+    "رَّبِّ زِدْنِي عِلْمًا"
+  </text>
+  <text x="510" y="69" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-style="italic" fill="#94a3b8">
+    — "My Lord, increase me in knowledge." (20:114)
+  </text>
+
+  <line x1="400" y1="84" x2="820" y2="84" stroke="#94a3b8" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Metadata Table Rows -->
+  <g font-family="ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace" font-size="12">
+    <!-- Candidate -->
+    <text x="400" y="110">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">CANDIDATE</tspan>
+      <tspan x="515" fill="#e2e8f0" font-weight="600">Muhammad Khaidhir bin Mohd Razin</tspan>
+    </text>
+
+    <!-- Student ID -->
+    <text x="400" y="134">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">STUDENT ID</tspan>
+      <tspan x="515" fill="#34d399" font-weight="bold" letter-spacing="1">22007399</tspan>
+      <tspan x="620" fill="#94a3b8" font-size="11">(UTP Computer Science)</tspan>
+    </text>
+
+    <!-- Course & GA -->
+    <text x="400" y="158">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">COURSE</tspan>
+      <tspan x="515" fill="#e2e8f0">TEB3123 Machine Learning</tspan>
+    </text>
+    <text x="400" y="182">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">EVALUATOR</tspan>
+      <tspan x="515" fill="#e2e8f0">GA Reeyan Afzal</tspan>
+      <tspan x="670" fill="#94a3b8" font-size="10.5">· Lab Feedback Addressed</tspan>
+    </text>
+
+    <!-- Milestone Progress -->
+    <text x="400" y="210">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">MILESTONES</tspan>
+      <tspan x="515" fill="#e2e8f0">3 of 8 Labs Completed</tspan>
+    </text>
+
+    <!-- Milestone Cells: 1, 2, 3 Done (Green), 4 Next (Gold), 5-8 Pending -->
+    <g transform="translate(685, 199)">
+      <rect x="0" y="0" width="13" height="12" rx="2.5" fill="#10b981"/>
+      <rect x="16" y="0" width="13" height="12" rx="2.5" fill="#10b981"/>
+      <rect x="32" y="0" width="13" height="12" rx="2.5" fill="#10b981"/>
+      <rect x="48" y="0" width="13" height="12" rx="2.5" fill="#f59e0b"/>
+      <rect x="64" y="0" width="13" height="12" rx="2.5" fill="#1e3a2f"/>
+      <rect x="80" y="0" width="13" height="12" rx="2.5" fill="#1e3a2f"/>
+      <rect x="96" y="0" width="13" height="12" rx="2.5" fill="#1e3a2f"/>
+      <rect x="112" y="0" width="13" height="12" rx="2.5" fill="#1e3a2f"/>
+    </g>
+
+    <!-- Current & Next Focus -->
+    <text x="400" y="234">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">NEXT LAB</tspan>
+      <tspan x="515" fill="#fbbf24" font-weight="bold">Lab 04: Clustering &amp; PCA (Unsupervised I)</tspan>
+    </text>
+
+    <!-- Empirical Benchmark Records -->
+    <text x="400" y="260">
+      <tspan fill="url(#goldRamp_dark)" font-weight="bold">BENCHMARKS</tspan>
+      <tspan x="515" fill="#e2e8f0">Titanic AUC: <tspan fill="#34d399">0.837</tspan> · SVM AUC: <tspan fill="#34d399">0.997</tspan></tspan>
+    </text>
+    <text x="515" y="278" font-size="11" fill="#94a3b8">
+      Bike Demand MAE: 56.5/hr · Student Grade MAE: 2.08
+    </text>
+  </g>
+
+  <!-- Bottom Verification Seal -->
+  <line x1="400" y1="298" x2="820" y2="298" stroke="#94a3b8" stroke-opacity="0.3" stroke-width="1"/>
+  <g font-family="ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace" font-size="11">
+    <rect x="400" y="309" width="112" height="20" rx="4" fill="#06241a" stroke="url(#emeraldRamp_dark)" stroke-width="1"/>
+    <text x="456" y="323" fill="#34d399" font-weight="bold" text-anchor="middle">✓ VERIFIED</text>
+    <text x="522" y="323" fill="#94a3b8">Random Seed 42 Fixed · Zero Leakage Pipelines</text>
+  </g>
 </svg>
